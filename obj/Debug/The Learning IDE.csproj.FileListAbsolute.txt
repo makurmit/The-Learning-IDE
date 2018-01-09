@@ -16,3 +16,4 @@ C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\ob
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.csproj.CoreCompileInputs.cache
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.exe
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.pdb
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.csprojResolveAssemblyReference.cache

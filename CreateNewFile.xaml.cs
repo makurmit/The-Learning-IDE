@@ -41,7 +41,7 @@ namespace The_Learning_IDE
             if (CSButton.IsChecked == true)
             {
                 l = The_Learning_IDE.Language.Csharp;
-                extension = ".sln";
+                extension = ".cs";
             }
             else if (JavaButton.IsChecked == true)
             {
@@ -111,7 +111,7 @@ namespace The_Learning_IDE
                 {
                     Console.WriteLine(ex.ToString());
                 }
-                //close window
+                this.Close();
             }
             else
             {
