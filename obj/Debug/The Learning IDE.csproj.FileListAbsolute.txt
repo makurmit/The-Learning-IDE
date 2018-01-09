@@ -15,3 +15,5 @@ C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\ob
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.pdb
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\CreateNewFile.g.cs
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\CreateNewFile.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\SaveChanges.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\SaveChanges.baml

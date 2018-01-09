@@ -24,5 +24,11 @@ namespace The_Learning_IDE
         {
             InitializeComponent();
         }
+
+        private void NewFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            CreateNewFile NewFileWindow = new CreateNewFile();
+            NewFileWindow.Show();
+        }
     }
 }

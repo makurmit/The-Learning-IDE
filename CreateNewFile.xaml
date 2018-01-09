@@ -15,31 +15,49 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="Filename:" 
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Filename:" 
+                   Grid.Row="0" Grid.Column="0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="FileNameBox"
+                     Grid.Row="0" Grid.Column="1"
+                     Width="200" Background="LightGray"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+                <Label Content="Directory:"
                    Grid.Row="1" Grid.Column="0"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"/>
-            <TextBox x:Name="FileNameBox"
+                <TextBox x:Name="DirectoryBox"
                      Grid.Row="1" Grid.Column="1"
-                     Width="200" Background="LightGray"
-                     HorizontalAlignment="Center"
+                     Width="150" Background="LightGray"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"/>
-            <Label Content="Directory:"
-                   Grid.Row="2" Grid.Column="0"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Center"/>
-            <TextBox x:Name="DirectoryBox"
-                     Grid.Row="2" Grid.Column="1"
-                     Width="200" Background="LightGray"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center"/>
+                <Button x:Name="DirectoryButton"
+                        Grid.Row="1" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Width="50" Height="20"
+                        Click="BrowseDirectoryClick"
+                        Content="Browse"/>
+            </Grid>
+            
+            <Label x:Name="WarningError"
+                   Grid.Row="3" Grid.Column="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontSize="13" />
         </Grid>
         <Grid x:Name="Buttons" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -58,19 +76,24 @@
 
             <RadioButton Grid.Row="1"
                          HorizontalAlignment="Right"
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         x:Name="CSButton"/>
             <RadioButton Grid.Row="2"
                          HorizontalAlignment="Right"
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         x:Name="JavaButton"/>
             <RadioButton Grid.Row="3"
                          HorizontalAlignment="Right"
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         x:Name="JavaScriptButton"/>
             <RadioButton Grid.Row="4"
                          HorizontalAlignment="Right"
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         x:Name="PythonButton"/>
             <RadioButton Grid.Row="5"
                          HorizontalAlignment="Right"
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         x:Name="RubyButton"/>
             <Label Grid.Row="1" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
@@ -92,7 +115,7 @@
                    VerticalAlignment="Center"
                    Content="Ruby"/>
 
-            <Button Content="Create" x:Name="CreateButton"
+            <Button Content="Create" Click="CreateButtonClick"
                     Grid.Column="1" Grid.Row="6"
                     Width="50" Height="20"/>
         </Grid>
