@@ -20,9 +20,9 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Open File" Click="OpenFileClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
-                    Content="Save File"/>
+                    Content="Save File" Click="SaveFileClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
-                    Content="Lessons" />
+                    Content="Lessons" Click="LessonClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Fundamentals" />
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
@@ -32,33 +32,31 @@
         </StackPanel>
 
         <Grid Grid.Row="1">
-            <TabControl Height="20" VerticalAlignment="Top">
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
-                </TabItem>
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
-                </TabItem>
-            </TabControl>
-
+            <TabControl Height="20" VerticalAlignment="Top"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <TextBlock HorizontalAlignment="Left" 
                        MinHeight="200" Width="10" 
-                       Background="LightGray">
+                       Background="LightGray"
+                       IsEnabled="False">
             </TextBlock>
 
             <RichTextBox x:Name="TextField"
                 MinHeight="10" 
-                MinWidth="300">
-            </RichTextBox>
+                MinWidth="340"
+                AcceptsTab="True"
+                AcceptsReturn="True"
+                IsEnabled="False"/>
 
             <Expander Header="Lesson" 
                       HorizontalAlignment="Right" VerticalAlignment="Top"
-                      MinHeight="200" MaxHeight="500"
-                      MinWidth="150">
-                <Grid Background="#FFE5E5E5"/>
+                      MinHeight="20" MaxHeight="500"
+                      MinWidth="100">
+                <TextBox x:Name="LessonBox" 
+                         MinHeight="170" Width="150"
+                         AcceptsTab="True" AcceptsReturn="True"
+                         IsReadOnly="True"/>
             </Expander>
         </StackPanel>
 

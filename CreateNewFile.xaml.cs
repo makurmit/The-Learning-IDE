@@ -11,9 +11,12 @@ namespace The_Learning_IDE
     /// </summary>
     public partial class CreateNewFile : Window
     {
-        public CreateNewFile()
+        private MainWindow theMainWindow;
+
+        public CreateNewFile(MainWindow mw)
         {
             InitializeComponent();
+            theMainWindow = mw;
         }
 
         private void BrowseDirectoryClick(object sender, RoutedEventArgs e)
@@ -105,6 +108,8 @@ namespace The_Learning_IDE
                         fs.Write(info, 0, info.Length);
                     }
 
+                    theMainWindow.AddFile(path);
+
                 }
 
                 catch (Exception ex)
@@ -118,6 +123,7 @@ namespace The_Learning_IDE
                 WarningError.Content = "Please input a filename, directory, and language";
             }
         }
+
 
     }
 }
