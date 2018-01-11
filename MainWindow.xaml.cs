@@ -25,13 +25,13 @@ namespace The_Learning_IDE
     public partial class MainWindow : Window
     {
         private List<String> FilePaths = new List<string>();
+        private List<String> rtfs = new List<string>();
         private String CurrentFilePath;
-        /*
-         * read files to see if there are any changes: if so add "*" to the tab.
-         * 
-         * Change save file to check tab order.
-        */
+        private List<TabItem> tabs = new List<TabItem>();
 
+        //to do
+        //add * on unsaved files
+        //change files when tabs change
 
         public MainWindow()
         {
@@ -44,10 +44,20 @@ namespace The_Learning_IDE
             NewFileWindow.Show();
         }
 
-        public void AddFile(String FilePath)
+        public void AddFile(String FilePath, String FileContent, String fileName)
         {
             CurrentFilePath = FilePath;
             FilePaths.Add(CurrentFilePath);
+            rtfs.Add(FileContent);
+
+            TabItem ti = new TabItem
+            {
+                Header = fileName,
+                IsSelected = true,
+            };
+
+            TabBar.Items.Add(ti);
+            tabs.Add(ti);
             if (!TextField.IsEnabled)
             {
                 TextField.IsEnabled = true;
@@ -82,11 +92,14 @@ namespace The_Learning_IDE
 
                         sr.Close();
 
+                        int filesIndex = FilePaths.IndexOf(CurrentFilePath);
+                        rtfs[filesIndex] = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
+
                         TextField.Document.Blocks.Clear();
                         TextField.Document.Blocks.Add(new Paragraph(new Run(fileContent)));
 
-                        AddFile(path);
-                        //add tab
+                        AddFile(path, fileContent, dlg.SafeFileName);
+                        
 
                     }
 
@@ -158,5 +171,22 @@ namespace The_Learning_IDE
             }
         }
 
+        private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //save contents of currentfile
+            string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
+            if (fileContent != "" && fileContent != null)
+            {
+                int filesIndex = FilePaths.IndexOf(CurrentFilePath);
+                rtfs[filesIndex] = fileContent;
+            }
+
+            TabItem ti = TabBar.SelectedItem as TabItem;
+
+            CurrentFilePath = FilePaths[tabs.IndexOf(ti)];
+            int index = FilePaths.IndexOf(CurrentFilePath);
+            TextField.Document.Blocks.Clear();
+            TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[index])));
+        }
     }
 }

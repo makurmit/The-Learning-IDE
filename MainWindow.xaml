@@ -32,7 +32,9 @@
         </StackPanel>
 
         <Grid Grid.Row="1">
-            <TabControl Height="20" VerticalAlignment="Top"/>
+            <TabControl Height="20" VerticalAlignment="Top"
+                        x:Name="TabBar" ItemsSource="{Binding}"
+                        SelectionChanged="TabBar_SelectionChanged"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">

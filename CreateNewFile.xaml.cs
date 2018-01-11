@@ -108,7 +108,7 @@ namespace The_Learning_IDE
                         fs.Write(info, 0, info.Length);
                     }
 
-                    theMainWindow.AddFile(path);
+                    theMainWindow.AddFile(path, "", filename + extension);
 
                 }
 
