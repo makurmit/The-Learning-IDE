@@ -17,25 +17,27 @@ using System.Windows.Shapes;
 
 namespace The_Learning_IDE
 {
-    public delegate void OpenWindow(bool b);
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private String CurrentFilePath;
         private List<String> FilePaths = new List<string>();
         private List<String> rtfs = new List<string>();
-        private String CurrentFilePath;
         private List<TabItem> tabs = new List<TabItem>();
 
         //to do
         //add * on unsaved files
         //change files when tabs change
+        //check all methods to make sure rtfs are saved before creating their own
+        //refactoring will help
 
         public MainWindow()
         {
             InitializeComponent();
+            TextField.Document.Blocks.Clear();
         }
 
         private void NewFileButtonClick(object sender, RoutedEventArgs e)
@@ -46,22 +48,26 @@ namespace The_Learning_IDE
 
         public void AddFile(String FilePath, String FileContent, String fileName)
         {
+            SaveTextField();
+
+            TabItem ti = new TabItem
+            {
+                Header = fileName
+            };
+
+            tabs.Add(ti);
+            TabBar.Items.Add(ti);
+
             CurrentFilePath = FilePath;
             FilePaths.Add(CurrentFilePath);
             rtfs.Add(FileContent);
 
-            TabItem ti = new TabItem
-            {
-                Header = fileName,
-                IsSelected = true,
-            };
-
-            TabBar.Items.Add(ti);
-            tabs.Add(ti);
             if (!TextField.IsEnabled)
             {
                 TextField.IsEnabled = true;
             }
+
+            ti.IsSelected = true;
         }
 
         private void OpenFileClick(object sender, RoutedEventArgs e)
@@ -173,20 +179,29 @@ namespace The_Learning_IDE
 
         private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //save contents of currentfile
+            SaveTextField();
+
+            TabItem tab = TabBar.SelectedItem as TabItem;
+
+            if (tab != null && tab.Header != null)
+            {
+                CurrentFilePath = FilePaths[tabs.IndexOf(tab)];
+                int index = FilePaths.IndexOf(CurrentFilePath);
+                TextField.Document.Blocks.Clear();
+                TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[index])));
+            }
+        }
+
+        private void SaveTextField()
+        {
+            //take whatevers in the textfield
             string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
             if (fileContent != "" && fileContent != null)
             {
+                //save it into the rtfs list
                 int filesIndex = FilePaths.IndexOf(CurrentFilePath);
                 rtfs[filesIndex] = fileContent;
             }
-
-            TabItem ti = TabBar.SelectedItem as TabItem;
-
-            CurrentFilePath = FilePaths[tabs.IndexOf(ti)];
-            int index = FilePaths.IndexOf(CurrentFilePath);
-            TextField.Document.Blocks.Clear();
-            TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[index])));
         }
     }
 }

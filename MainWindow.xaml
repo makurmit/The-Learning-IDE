@@ -36,6 +36,7 @@
                         x:Name="TabBar" ItemsSource="{Binding}"
                         SelectionChanged="TabBar_SelectionChanged"/>
         </Grid>
+        
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <TextBlock HorizontalAlignment="Left" 
