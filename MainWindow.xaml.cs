@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,18 +31,16 @@ namespace The_Learning_IDE
         private List<String> rtfs = new List<string>();
         private List<TabItem> tabs = new List<TabItem>();
 
-        //to do
-        //add * on unsaved files
-        //change files when tabs change
-        //check all methods to make sure rtfs are saved before creating their own
-        //refactoring will help
+        private bool bUnsavedChanges;
 
         public MainWindow()
         {
+            //debug.writeline("this is how you console write in wpf");
             InitializeComponent();
             CurrIndex = 0;
             CurrentFilePath = "";
             bNewFile = false;
+            bUnsavedChanges = false;
             TextField.Document.Blocks.Clear();
         }
 
@@ -70,11 +69,23 @@ namespace The_Learning_IDE
                     fs.Write(info, 0, info.Length);
                 }
 
+                //string tHeader = "";
+                //foreach (TabItem ti in tabs)
+                //{
+                //    tHeader = ti.Header as string;
+                //    if (tHeader.Contains(" * "))
+                //    {
+                //        tHeader.Replace(" * ", "");
+                //        ti.Header = tHeader;
+                //        TabBar.Items.Refresh();
+                //    }
+                //}
+
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Debug.WriteLine(ex.ToString());
             }
         }
 
@@ -110,7 +121,7 @@ namespace The_Learning_IDE
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Debug.WriteLine(ex.ToString());
                 }
             }
         }
@@ -145,16 +156,11 @@ namespace The_Learning_IDE
 
                         AddFile(NewPath, fileContent, dlg.SafeFileName);
 
-                        //int filesIndex = FilePaths.IndexOf(CurrentFilePath);
-                        //rtfs[filesIndex] = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
-
-                        //TextField.Document.Blocks.Clear();
-                        //TextField.Document.Blocks.Add(new Paragraph(new Run(fileContent)));
                     }
 
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.ToString());
+                        Debug.WriteLine(ex.ToString());
                     }
                 }
 
@@ -216,5 +222,37 @@ namespace The_Learning_IDE
             TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[CurrIndex])));
         }
 
+        private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //if over current tab wip
+            if (tabs.Count > 0)
+            {
+                tabs.RemoveAt(CurrIndex);
+                rtfs.RemoveAt(CurrIndex);
+                FilePaths.RemoveAt(CurrIndex);
+
+                if (CurrIndex > 0)
+                {
+                    CurrIndex -= 1;
+                }
+
+                CurrentFilePath = FilePaths[CurrIndex];
+            }
+        }
+
+        //private void UnsavedChanges(object sender, TextChangedEventArgs e)
+        //{
+        //    //first time opening
+        //    if (TextField.IsEnabled)
+        //    {
+        //        string tHeader = tabs[CurrIndex].Header as string;
+        //        if (!tHeader.Contains(" * "))
+        //        {
+        //            bUnsavedChanges = true;
+
+        //            tabs[CurrIndex].Header += " * ";
+        //        }
+        //    }
+        //}
     }
 }

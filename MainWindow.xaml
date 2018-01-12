@@ -34,7 +34,9 @@
         <Grid Grid.Row="1">
             <TabControl Height="20" VerticalAlignment="Top"
                         x:Name="TabBar" ItemsSource="{Binding}"
-                        SelectionChanged="TabBar_SelectionChanged"/>
+                        SelectionChanged="TabBar_SelectionChanged"
+                        MouseRightButtonUp="TabBar_MouseRightButtonDown">
+            </TabControl>
         </Grid>
         
 
@@ -46,11 +48,11 @@
             </TextBlock>
 
             <RichTextBox x:Name="TextField"
-                MinHeight="10" 
-                MinWidth="340"
-                AcceptsTab="True"
-                AcceptsReturn="True"
-                IsEnabled="False"/>
+                         MinHeight="10" 
+                         MinWidth="340"
+                         AcceptsTab="True"
+                         AcceptsReturn="True"
+                         IsEnabled="False"/>
 
             <Expander Header="Lesson" 
                       HorizontalAlignment="Right" VerticalAlignment="Top"
