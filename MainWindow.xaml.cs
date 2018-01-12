@@ -24,6 +24,8 @@ namespace The_Learning_IDE
     public partial class MainWindow : Window
     {
         private String CurrentFilePath;
+        private int CurrIndex;
+        private bool bNewFile;
         private List<String> FilePaths = new List<string>();
         private List<String> rtfs = new List<string>();
         private List<TabItem> tabs = new List<TabItem>();
@@ -37,6 +39,9 @@ namespace The_Learning_IDE
         public MainWindow()
         {
             InitializeComponent();
+            CurrIndex = 0;
+            CurrentFilePath = "";
+            bNewFile = false;
             TextField.Document.Blocks.Clear();
         }
 
@@ -46,76 +51,9 @@ namespace The_Learning_IDE
             NewFileWindow.Show();
         }
 
-        public void AddFile(String FilePath, String FileContent, String fileName)
-        {
-            SaveTextField();
-
-            TabItem ti = new TabItem
-            {
-                Header = fileName
-            };
-
-            tabs.Add(ti);
-            TabBar.Items.Add(ti);
-
-            CurrentFilePath = FilePath;
-            FilePaths.Add(CurrentFilePath);
-            rtfs.Add(FileContent);
-
-            if (!TextField.IsEnabled)
-            {
-                TextField.IsEnabled = true;
-            }
-
-            ti.IsSelected = true;
-        }
-
         private void OpenFileClick(object sender, RoutedEventArgs e)
         {
-            string path = "";
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                path = dlg.FileName;
-
-                if (!FilePaths.Contains(path))
-                {
-                    try
-                    {
-                        String line;
-                        String fileContent = "";
-                        StreamReader sr = new StreamReader(path);
-
-                        line = sr.ReadLine();
-                        while (line != null)
-                        {
-                            fileContent += line;
-                            line = sr.ReadLine();
-                        }
-
-                        sr.Close();
-
-                        int filesIndex = FilePaths.IndexOf(CurrentFilePath);
-                        rtfs[filesIndex] = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
-
-                        TextField.Document.Blocks.Clear();
-                        TextField.Document.Blocks.Add(new Paragraph(new Run(fileContent)));
-
-                        AddFile(path, fileContent, dlg.SafeFileName);
-                        
-
-                    }
-
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                }
-
-            }
+            OpenFile();
         }
 
         private void SaveFileClick(object sender, RoutedEventArgs e)
@@ -177,31 +115,106 @@ namespace The_Learning_IDE
             }
         }
 
-        private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OpenFile()
         {
-            SaveTextField();
+            string NewPath = "";
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            TabItem tab = TabBar.SelectedItem as TabItem;
+            Nullable<bool> result = dlg.ShowDialog();
 
-            if (tab != null && tab.Header != null)
+            if (result == true)
             {
-                CurrentFilePath = FilePaths[tabs.IndexOf(tab)];
-                int index = FilePaths.IndexOf(CurrentFilePath);
-                TextField.Document.Blocks.Clear();
-                TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[index])));
+                NewPath = dlg.FileName;
+
+                if (!FilePaths.Contains(NewPath))
+                {
+                    try
+                    {
+                        String line;
+                        String fileContent = "";
+                        StreamReader sr = new StreamReader(NewPath);
+
+                        line = sr.ReadLine();
+                        while (line != null)
+                        {
+                            fileContent += line;
+                            line = sr.ReadLine();
+                        }
+
+                        sr.Close();
+
+                        AddFile(NewPath, fileContent, dlg.SafeFileName);
+
+                        //int filesIndex = FilePaths.IndexOf(CurrentFilePath);
+                        //rtfs[filesIndex] = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
+
+                        //TextField.Document.Blocks.Clear();
+                        //TextField.Document.Blocks.Add(new Paragraph(new Run(fileContent)));
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+
             }
         }
+        
+        public void AddFile(String FilePath, String FileContent, String fileName)
+        {
+            SaveCurrTab();
 
-        private void SaveTextField()
+            TabItem ti = new TabItem
+            {
+                Header = fileName
+            };
+
+            tabs.Add(ti);
+            TabBar.Items.Add(ti);
+
+            CurrentFilePath = FilePath;
+            FilePaths.Add(CurrentFilePath);
+            rtfs.Add(FileContent);
+            CurrIndex = FilePaths.IndexOf(CurrentFilePath);
+            bNewFile = true;
+
+            if (!TextField.IsEnabled)
+            {
+                TextField.IsEnabled = true;
+            }
+
+            ti.IsSelected = true;
+        }
+
+        private void SaveCurrTab()
         {
             //take whatevers in the textfield
             string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
             if (fileContent != "" && fileContent != null)
             {
                 //save it into the rtfs list
-                int filesIndex = FilePaths.IndexOf(CurrentFilePath);
-                rtfs[filesIndex] = fileContent;
+                rtfs[CurrIndex] = fileContent;
             }
         }
+
+        private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!bNewFile)
+            {
+                //if it's not a new tab save the current tab and adjust the currindex and currfilepath
+                SaveCurrTab();
+                CurrIndex = TabBar.SelectedIndex;
+                CurrentFilePath = FilePaths[CurrIndex];
+            }
+            else
+            {
+                bNewFile = false;
+            }
+
+            TextField.Document.Blocks.Clear();
+            TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[CurrIndex])));
+        }
+
     }
 }
