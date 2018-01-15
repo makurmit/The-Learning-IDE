@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
-        Title="The Learning IDE" Height="350" Width="525">
+        Background="DarkGray"
+        Title="The Learning IDE" Height="500" Width="600">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
@@ -32,43 +33,52 @@
         </StackPanel>
 
         <Grid Grid.Row="1">
-            <TabControl Height="20" VerticalAlignment="Top"
+            <TabControl Height="20" VerticalAlignment="Bottom"
                         x:Name="TabBar" ItemsSource="{Binding}"
                         SelectionChanged="TabBar_SelectionChanged"
+                        Background="DarkGray" 
                         MouseRightButtonUp="TabBar_MouseRightButtonDown">
             </TabControl>
         </Grid>
         
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <TextBlock HorizontalAlignment="Left" 
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock HorizontalAlignment="Left" Grid.Column="0"
                        MinHeight="200" Width="10" 
-                       Background="LightGray"
+                       Background="SlateGray"
                        IsEnabled="False">
             </TextBlock>
 
-            <RichTextBox x:Name="TextField"
-                         MinHeight="10" 
-                         MinWidth="340"
-                         AcceptsTab="True"
-                         AcceptsReturn="True"
+            <RichTextBox x:Name="TextField" Grid.Column="1"
+                         HorizontalAlignment="Stretch"
+                         Background="DarkGray" BorderBrush="Black" BorderThickness="2"
+                         MinHeight="10" MinWidth="340"
+                         AcceptsTab="True" AcceptsReturn="True"
                          IsEnabled="False"/>
 
-            <Expander Header="Lesson" 
-                      HorizontalAlignment="Right" VerticalAlignment="Top"
-                      MinHeight="20" MaxHeight="500"
-                      MinWidth="100">
+            <Expander Header="Lesson" Grid.Column="2"
+                      Background="DarkGray" BorderBrush="Black" BorderThickness="1"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      MinHeight="20" MinWidth="150">
                 <TextBox x:Name="LessonBox" 
-                         MinHeight="170" Width="150"
+                         VerticalAlignment="Stretch"
+                         Background="DarkGray" TextWrapping="Wrap"
                          AcceptsTab="True" AcceptsReturn="True"
                          IsReadOnly="True"/>
             </Expander>
-        </StackPanel>
+        </Grid>
 
         <Expander Header="Terminal" Grid.Row="3"
-                  HorizontalAlignment="Left" 
-                  MinWidth="525" Height="100" VerticalAlignment="Top">
-            <Grid Background="#FFE5E5E5"/>
+                  Background="DarkGray" BorderBrush="Black" BorderThickness="2"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                  MinWidth="520" Height="140">
+            <Grid Background="Black"/>
         </Expander>
     </Grid>
 </Window>
