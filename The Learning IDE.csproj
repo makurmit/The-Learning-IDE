@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\FileTab.cs" />
+    <Compile Include="Models\MMTabItem.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="SaveChanges.xaml.cs">
       <DependentUpon>SaveChanges.xaml</DependentUpon>

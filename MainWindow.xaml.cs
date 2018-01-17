@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using The_Learning_IDE.Models;
 
 namespace The_Learning_IDE
 {
@@ -27,9 +28,9 @@ namespace The_Learning_IDE
         private String CurrentFilePath;
         private int CurrIndex;
         private bool bNewFile;
-        private List<String> FilePaths = new List<string>();
-        private List<String> rtfs = new List<string>();
-        private List<TabItem> tabs = new List<TabItem>();
+        //private List<String> FilePaths = new List<string>();
+        //private List<String> rtfs = new List<string>();
+        private List<MMTabItem> tabs = new List<MMTabItem>();
 
         private bool bUnsavedChanges;
 
@@ -137,7 +138,15 @@ namespace The_Learning_IDE
             {
                 NewPath = dlg.FileName;
 
-                if (!FilePaths.Contains(NewPath))
+                bool exists = false;
+                foreach (MMTabItem ti in tabs){
+                    if (ti.filePath.Equals(NewPath))
+                    {
+                        exists = true;
+                    }
+                }
+
+                if (!exists)
                 {
                     try
                     {
@@ -171,18 +180,20 @@ namespace The_Learning_IDE
         {
             SaveCurrTab();
 
-            TabItem ti = new TabItem
+            MMTabItem ti = new MMTabItem
             {
-                Header = fileName
+                Header = fileName,
+                filePath = FilePath,
+                rtf = FileContent,
+                fileName = fileName,
+                unSavedChanges = false
             };
 
             tabs.Add(ti);
             TabBar.Items.Add(ti);
 
             CurrentFilePath = FilePath;
-            FilePaths.Add(CurrentFilePath);
-            rtfs.Add(FileContent);
-            CurrIndex = FilePaths.IndexOf(CurrentFilePath);
+            CurrIndex = tabs.IndexOf(ti);
             bNewFile = true;
 
             if (!TextField.IsEnabled)
@@ -200,7 +211,7 @@ namespace The_Learning_IDE
             if (fileContent != "" && fileContent != null)
             {
                 //save it into the rtfs list
-                rtfs[CurrIndex] = fileContent;
+                tabs[CurrIndex].rtf = fileContent;
             }
         }
 
@@ -211,7 +222,7 @@ namespace The_Learning_IDE
                 //if it's not a new tab save the current tab and adjust the currindex and currfilepath
                 SaveCurrTab();
                 CurrIndex = TabBar.SelectedIndex;
-                CurrentFilePath = FilePaths[CurrIndex];
+                CurrentFilePath = tabs[CurrIndex].filePath;
             }
             else
             {
@@ -219,7 +230,7 @@ namespace The_Learning_IDE
             }
 
             TextField.Document.Blocks.Clear();
-            TextField.Document.Blocks.Add(new Paragraph(new Run(rtfs[CurrIndex])));
+            TextField.Document.Blocks.Add(new Paragraph(new Run(tabs[CurrIndex].rtf)));
         }
 
         private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -228,15 +239,13 @@ namespace The_Learning_IDE
             if (tabs.Count > 0)
             {
                 tabs.RemoveAt(CurrIndex);
-                rtfs.RemoveAt(CurrIndex);
-                FilePaths.RemoveAt(CurrIndex);
 
                 if (CurrIndex > 0)
                 {
                     CurrIndex -= 1;
                 }
 
-                CurrentFilePath = FilePaths[CurrIndex];
+                CurrentFilePath = tabs[CurrIndex].filePath;
             }
         }
 
