@@ -41,5 +41,11 @@ namespace The_Learning_IDE.Models
             set;
         }
 
+        public Language fileLanguage
+        {
+            get;
+            set;
+        }
+
     }
 }

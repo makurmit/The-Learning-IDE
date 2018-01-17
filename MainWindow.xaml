@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
-        Background="DarkGray"
+        Background="DarkGray" Closing="Window_Closing"
         Title="The Learning IDE" Height="500" Width="600">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
@@ -60,6 +60,7 @@
                          Background="DarkGray" BorderBrush="Black" BorderThickness="2"
                          MinHeight="10" MinWidth="340"
                          AcceptsTab="True" AcceptsReturn="True"
+                         TextChanged="UnsavedChanges"
                          IsEnabled="False"/>
 
             <Expander Header="Lesson" Grid.Column="2"

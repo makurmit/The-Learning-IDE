@@ -18,13 +18,21 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="No" Grid.Column="0"
+            <Button Content="No" Grid.Column="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Width="35" Height="20"/>
-            <Button Content="Yes" Grid.Column="1"
+                    Width="35" Height="20"
+                    Click="NoClick"/>
+            <Button Content="Yes" Grid.Column="0"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Width="35" Height="20"/>
+                    Width="35" Height="20"
+                    Click="YesClick"/>
+            <Button Content="Cancel" Grid.Column="2"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Width="50" Height="20"
+                    Click="CancelClick"
+                />
         </Grid>
     </Grid>
 </Window>

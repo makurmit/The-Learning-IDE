@@ -28,11 +28,7 @@ namespace The_Learning_IDE
         private String CurrentFilePath;
         private int CurrIndex;
         private bool bNewFile;
-        //private List<String> FilePaths = new List<string>();
-        //private List<String> rtfs = new List<string>();
         private List<MMTabItem> tabs = new List<MMTabItem>();
-
-        private bool bUnsavedChanges;
 
         public MainWindow()
         {
@@ -41,7 +37,6 @@ namespace The_Learning_IDE
             CurrIndex = 0;
             CurrentFilePath = "";
             bNewFile = false;
-            bUnsavedChanges = false;
             TextField.Document.Blocks.Clear();
         }
 
@@ -61,33 +56,7 @@ namespace The_Learning_IDE
             String path = CurrentFilePath;
             String StringInfo = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
 
-            try
-            {
-
-                using (FileStream fs = File.OpenWrite(path))
-                {
-                    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
-                    fs.Write(info, 0, info.Length);
-                }
-
-                //string tHeader = "";
-                //foreach (TabItem ti in tabs)
-                //{
-                //    tHeader = ti.Header as string;
-                //    if (tHeader.Contains(" * "))
-                //    {
-                //        tHeader.Replace(" * ", "");
-                //        ti.Header = tHeader;
-                //        TabBar.Items.Refresh();
-                //    }
-                //}
-
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
+            SaveFile(path, StringInfo);
         }
 
         private void LessonClick(object sender, RoutedEventArgs e)
@@ -163,7 +132,32 @@ namespace The_Learning_IDE
 
                         sr.Close();
 
-                        AddFile(NewPath, fileContent, dlg.SafeFileName);
+                        string extension = System.IO.Path.GetExtension(NewPath).ToUpper();
+                        Language l;
+
+                        switch (extension)
+                        {
+                            case ".CS":
+                                l = The_Learning_IDE.Language.Csharp;
+                                break;
+                            case ".JAVA":
+                                l = The_Learning_IDE.Language.Java;
+                                break;
+                            case ".JS":
+                                l = The_Learning_IDE.Language.JavaScript;
+                                break;
+                            case ".PY":
+                                l = The_Learning_IDE.Language.Python;
+                                break;
+                            case ".RB":
+                                l = The_Learning_IDE.Language.Ruby;
+                                break;
+                            default:
+                                l = The_Learning_IDE.Language.Text;
+                                break;
+                        }
+
+                        AddFile(NewPath, fileContent, dlg.SafeFileName, l);
 
                     }
 
@@ -176,7 +170,7 @@ namespace The_Learning_IDE
             }
         }
         
-        public void AddFile(String FilePath, String FileContent, String fileName)
+        public void AddFile(String FilePath, String FileContent, String fileName, Language l)
         {
             SaveCurrTab();
 
@@ -186,7 +180,8 @@ namespace The_Learning_IDE
                 filePath = FilePath,
                 rtf = FileContent,
                 fileName = fileName,
-                unSavedChanges = false
+                unSavedChanges = false,
+                fileLanguage = l
             };
 
             tabs.Add(ti);
@@ -202,6 +197,39 @@ namespace The_Learning_IDE
             }
 
             ti.IsSelected = true;
+        }
+
+        public void SaveFile(string path, string StringInfo)
+        {
+            try
+            {
+
+                using (FileStream fs = File.OpenWrite(path))
+                {
+                    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
+                    fs.Write(info, 0, info.Length);
+                }
+
+                tabs[CurrIndex].unSavedChanges = false;
+
+                string tHeader = "";
+                foreach (MMTabItem ti in tabs)
+                {
+                    tHeader = ti.Header as string;
+                    if (tHeader.Contains(" * "))
+                    {
+                        tHeader = tHeader.Replace(" * ", "");
+                        ti.Header = tHeader;
+                        TabBar.Items.Refresh();
+                    }
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         private void SaveCurrTab()
@@ -236,32 +264,50 @@ namespace The_Learning_IDE
         private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //if over current tab wip
-            if (tabs.Count > 0)
+            //if (tabs.Count > 0)
+            //{
+            //    tabs.RemoveAt(CurrIndex);
+
+            //    if (CurrIndex > 0)
+            //    {
+            //        CurrIndex -= 1;
+            //    }
+
+            //    CurrentFilePath = tabs[CurrIndex].filePath;
+            //}
+        }
+
+        private void UnsavedChanges(object sender, TextChangedEventArgs e)
+        {
+            //first time opening
+            if (TextField.IsEnabled)
             {
-                tabs.RemoveAt(CurrIndex);
-
-                if (CurrIndex > 0)
+                tabs[CurrIndex].unSavedChanges = true;
+                string theHeader = tabs[CurrIndex].Header as string;
+                if (!theHeader.Contains(" * "))
                 {
-                    CurrIndex -= 1;
+                    tabs[CurrIndex].Header += " * ";
                 }
-
-                CurrentFilePath = tabs[CurrIndex].filePath;
             }
         }
 
-        //private void UnsavedChanges(object sender, TextChangedEventArgs e)
-        //{
-        //    //first time opening
-        //    if (TextField.IsEnabled)
-        //    {
-        //        string tHeader = tabs[CurrIndex].Header as string;
-        //        if (!tHeader.Contains(" * "))
-        //        {
-        //            bUnsavedChanges = true;
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool changes = false;
+            foreach (MMTabItem ti in tabs)
+            {
+                if (ti.unSavedChanges)
+                {
+                    changes = true;
+                }
+            }
 
-        //            tabs[CurrIndex].Header += " * ";
-        //        }
-        //    }
-        //}
+            if (changes)
+            {
+                e.Cancel = true;
+                SaveChanges sc = new SaveChanges(this);
+                sc.Show();
+            }
+        }
     }
 }

@@ -19,9 +19,29 @@ namespace The_Learning_IDE
     /// </summary>
     public partial class SaveChanges : Window
     {
-        public SaveChanges()
+
+        private MainWindow theMW;
+
+        public SaveChanges(MainWindow mw)
         {
             InitializeComponent();
+            theMW = mw;
         }
+
+        private void NoClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void YesClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void CancelClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

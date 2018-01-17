@@ -16,8 +16,8 @@ namespace The_Learning_IDE
         public CreateNewFile(MainWindow mw)
         {
             InitializeComponent();
-            //testing purposes only, delete later
 
+            //testing purposes only, delete later
             DirectoryBox.Text = @"C:\Users\Mitch\Desktop\testfiles";
             PythonButton.IsChecked = true;
 
@@ -113,7 +113,7 @@ namespace The_Learning_IDE
                         fs.Write(info, 0, info.Length);
                     }
 
-                    theMainWindow.AddFile(path, "", filename + extension);
+                    theMainWindow.AddFile(path, "", filename + extension, l);
 
                 }
 

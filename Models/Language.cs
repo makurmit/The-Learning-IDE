@@ -12,6 +12,7 @@ namespace The_Learning_IDE
         Java,
         JavaScript,
         Python,
-        Ruby
+        Ruby,
+        Text
     }
 }
