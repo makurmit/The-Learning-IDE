@@ -56,7 +56,7 @@ namespace The_Learning_IDE
             String path = CurrentFilePath;
             String StringInfo = tabs[CurrIndex].rtf;
 
-            SaveFile(path, StringInfo);
+            SaveFile(path, StringInfo, CurrIndex);
         }
 
         private void LessonClick(object sender, RoutedEventArgs e)
@@ -199,7 +199,7 @@ namespace The_Learning_IDE
             ti.IsSelected = true;
         }
 
-        public void SaveFile(string path, string StringInfo)
+        public void SaveFile(string path, string StringInfo, int tabIndex)
         {
             try
             {
@@ -210,20 +210,15 @@ namespace The_Learning_IDE
                     fs.Write(info, 0, info.Length);
                 }
 
-                tabs[CurrIndex].unSavedChanges = false;
+                tabs[tabIndex].unSavedChanges = false;
 
-                string tHeader = "";
-                foreach (MMTabItem ti in tabs)
+                string tHeader = tabs[CurrIndex].Header as string;
+                if (tHeader.Contains(" * "))
                 {
-                    tHeader = ti.Header as string;
-                    if (tHeader.Contains(" * "))
-                    {
-                        tHeader = tHeader.Replace(" * ", "");
-                        ti.Header = tHeader;
-                        TabBar.Items.Refresh();
-                    }
+                    tHeader = tHeader.Replace(" * ", "");
+                    tabs[CurrIndex].Header = tHeader;
+                    TabBar.Items.Refresh();
                 }
-
             }
 
             catch (Exception ex)
@@ -232,7 +227,7 @@ namespace The_Learning_IDE
             }
         }
 
-        private void SaveCurrTab()
+        public void SaveCurrTab()
         {
             //take whatevers in the textfield
             string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
@@ -256,7 +251,7 @@ namespace The_Learning_IDE
             {
                 bNewFile = false;
             }
-            string text = tabs[CurrIndex].rtf;
+
             TextField.Document.Blocks.Clear();
             TextField.Document.Blocks.Add(new Paragraph(new Run(tabs[CurrIndex].rtf)));
         }
@@ -289,8 +284,6 @@ namespace The_Learning_IDE
                     tabs[CurrIndex].Header += " * ";
                 }
 
-                //move or change this, it breaks open file
-                //tabs[CurrIndex].rtf = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
             }
         }
 

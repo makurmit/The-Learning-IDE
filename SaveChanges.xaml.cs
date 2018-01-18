@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,14 +37,18 @@ namespace The_Learning_IDE
 
         private void YesClick(object sender, RoutedEventArgs e)
         {
+            theMW.SaveCurrTab();
             string filecontent = "";
 
+            int tabIndex = 0;
             foreach (MMTabItem ti in theMW.tabs){
+                Debug.WriteLine(ti.unSavedChanges);
                 if (ti.unSavedChanges)
                 {
                     filecontent = ti.rtf;
-                    theMW.SaveFile(ti.filePath, filecontent);
+                    theMW.SaveFile(ti.filePath, filecontent, tabIndex);
                 }
+                tabIndex++;
             }
 
             Application.Current.Shutdown();
