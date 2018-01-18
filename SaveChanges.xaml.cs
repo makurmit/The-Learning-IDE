@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Learning_IDE.Models;
 
 namespace The_Learning_IDE
 {
@@ -35,7 +36,17 @@ namespace The_Learning_IDE
 
         private void YesClick(object sender, RoutedEventArgs e)
         {
-            
+            string filecontent = "";
+
+            foreach (MMTabItem ti in theMW.tabs){
+                if (ti.unSavedChanges)
+                {
+                    filecontent = ti.rtf;
+                    theMW.SaveFile(ti.filePath, filecontent);
+                }
+            }
+
+            Application.Current.Shutdown();
         }
 
         private void CancelClick(object sender, RoutedEventArgs e)

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace The_Learning_IDE.Models
 {
-    class MMTabItem : TabItem
+    public class MMTabItem : TabItem
     {
         /*
          * icons (NoChanges/UnsavedChanges

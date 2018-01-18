@@ -28,7 +28,7 @@ namespace The_Learning_IDE
         private String CurrentFilePath;
         private int CurrIndex;
         private bool bNewFile;
-        private List<MMTabItem> tabs = new List<MMTabItem>();
+        public List<MMTabItem> tabs = new List<MMTabItem>();
 
         public MainWindow()
         {
@@ -54,7 +54,7 @@ namespace The_Learning_IDE
         private void SaveFileClick(object sender, RoutedEventArgs e)
         {
             String path = CurrentFilePath;
-            String StringInfo = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
+            String StringInfo = tabs[CurrIndex].rtf;
 
             SaveFile(path, StringInfo);
         }
@@ -256,7 +256,7 @@ namespace The_Learning_IDE
             {
                 bNewFile = false;
             }
-
+            string text = tabs[CurrIndex].rtf;
             TextField.Document.Blocks.Clear();
             TextField.Document.Blocks.Add(new Paragraph(new Run(tabs[CurrIndex].rtf)));
         }
@@ -288,6 +288,9 @@ namespace The_Learning_IDE
                 {
                     tabs[CurrIndex].Header += " * ";
                 }
+
+                //move or change this, it breaks open file
+                //tabs[CurrIndex].rtf = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
             }
         }
 

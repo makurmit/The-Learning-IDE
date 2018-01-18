@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
-        Title="SaveChanges" Height="300" Width="450">
+        Title="SaveChanges" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="There are unsaved changes, would you like to save?"
+        <Label Content="There are unsaved changes, would you like to save and exit?"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="18"/>
         <Grid Grid.Row="1">
@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="No" Grid.Column="1"
+            <Button Content="Exit" Grid.Column="3"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Width="35" Height="20"
                     Click="NoClick"/>
@@ -28,7 +28,7 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Width="35" Height="20"
                     Click="YesClick"/>
-            <Button Content="Cancel" Grid.Column="2"
+            <Button Content="No" Grid.Column="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Width="50" Height="20"
                     Click="CancelClick"
