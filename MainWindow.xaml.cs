@@ -108,7 +108,7 @@ namespace The_Learning_IDE
                 NewPath = dlg.FileName;
 
                 bool exists = false;
-                foreach (MMTabItem ti in tabs){
+                foreach (MMTabItem ti in tabs) {
                     if (ti.filePath.Equals(NewPath))
                     {
                         exists = true;
@@ -169,7 +169,7 @@ namespace The_Learning_IDE
 
             }
         }
-        
+
         public void AddFile(String FilePath, String FileContent, String fileName, Language l)
         {
             SaveCurrTab();
@@ -258,6 +258,7 @@ namespace The_Learning_IDE
 
         private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //close tab will change to new popup window
             //if over current tab wip
             //if (tabs.Count > 0)
             //{
@@ -305,5 +306,37 @@ namespace The_Learning_IDE
                 sc.Show();
             }
         }
-    }
+
+        private void RunClick(object sender, RoutedEventArgs e)
+        {
+            if (TabBar.HasItems)
+            {
+                MMTabItem ti = TabBar.SelectedItem as MMTabItem;
+                string currDirectory = System.IO.Path.GetDirectoryName(ti.filePath);
+
+                switch (ti.fileLanguage)
+                {
+                    case The_Learning_IDE.Language.Python:
+                    case The_Learning_IDE.Language.Ruby:
+                        string strCmdText = $"/K cd {currDirectory} && {ti.fileName}";
+                        System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+                        break;
+                    case The_Learning_IDE.Language.Java:
+                        string fileNameNoJava = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
+                        string javaText = $"/K cd {currDirectory} && javac {ti.fileName} && java {fileNameNoJava}";
+                        System.Diagnostics.Process.Start("CMD.exe", javaText);
+                        break;
+                    case The_Learning_IDE.Language.Csharp:
+                        break;
+                    case The_Learning_IDE.Language.JavaScript:
+                        break;
+                    default:
+                        Debug.WriteLine($"Error language {ti.fileLanguage}");
+                        break;
+                }
+            }
+        }
+
+
+        }
 }
