@@ -38,6 +38,8 @@ namespace The_Learning_IDE
             CurrentFilePath = "";
             bNewFile = false;
             TextField.Document.Blocks.Clear();
+            LessonExpander.IsExpanded = true;
+            LessonBox.Text = File.ReadAllText(@"C:\Users\Mitch\Desktop\testfiles\lessons\Help\Welcome.txt");
         }
 
         private void NewFileButtonClick(object sender, RoutedEventArgs e)
@@ -108,6 +110,11 @@ namespace The_Learning_IDE
                 //}
 
             }
+        }
+
+        private void HelpClick(object sender, RoutedEventArgs e)
+        {
+            LessonBox.Text = File.ReadAllText(@"C:\Users\Mitch\Desktop\testfiles\lessons\Help\Help.txt");
         }
 
         private void OpenFile()
@@ -224,8 +231,6 @@ namespace The_Learning_IDE
 
             try
             {
-                Debug.WriteLine(tabs[TabBar.SelectedIndex].rtf);
-
                 File.WriteAllText(path, StringInfo);
 
                 //using (FileStream fs = File.OpenWrite(path))

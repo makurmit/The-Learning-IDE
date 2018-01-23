@@ -21,7 +21,7 @@
                     Content="Open File" Click="OpenFileClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Save File" Click="SaveFileClick"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top"
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"
                     Content="Manage Tabs" Click="TabManageClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Lessons" Click="LessonClick"/>
@@ -31,6 +31,8 @@
                     Content="Glossary" />
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Run" Click="RunClick"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="80, 0, 5, 0"
+                    Content="Help" Click="HelpClick"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -64,7 +66,7 @@
                          TextChanged="UnsavedChanges"
                          IsEnabled="False"/>
 
-            <Expander Header="Lesson" Grid.Column="2"
+            <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
                       Background="DarkGray" BorderBrush="Black" BorderThickness="1"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                       MinHeight="20" MinWidth="150">
@@ -72,7 +74,7 @@
                          VerticalAlignment="Stretch"
                          Background="DarkGray" TextWrapping="Wrap"
                          AcceptsTab="True" AcceptsReturn="True"
-                         IsReadOnly="True"/>
+                         IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
             </Expander>
         </Grid>
 

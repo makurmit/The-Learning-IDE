@@ -18,8 +18,7 @@ namespace The_Learning_IDE
             InitializeComponent();
 
             //testing purposes only, delete later
-            DirectoryBox.Text = @"C:\Users\Mitch\Desktop\testfiles";
-            PythonButton.IsChecked = true;
+            DirectoryBox.Text = @"C:\Users\Mitch\Desktop\testfiles\filedump";
 
             theMainWindow = mw;
         }
