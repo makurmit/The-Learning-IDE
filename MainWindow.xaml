@@ -12,7 +12,6 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
@@ -22,6 +21,8 @@
                     Content="Open File" Click="OpenFileClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Save File" Click="SaveFileClick"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Content="Manage Tabs" Click="TabManageClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Lessons" Click="LessonClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
@@ -37,7 +38,7 @@
                         x:Name="TabBar" ItemsSource="{Binding}"
                         SelectionChanged="TabBar_SelectionChanged"
                         Background="DarkGray" 
-                        MouseRightButtonUp="TabBar_MouseRightButtonDown">
+                        MouseRightButtonDown="TabBar_MouseRightButtonDown">
             </TabControl>
         </Grid>
         
@@ -75,11 +76,11 @@
             </Expander>
         </Grid>
 
-        <Expander Header="Terminal" Grid.Row="3"
+        <!--<Expander Header="Terminal" Grid.Row="3"
                   Background="DarkGray" BorderBrush="Black" BorderThickness="2"
                   HorizontalAlignment="Stretch" VerticalAlignment="Top"
                   MinWidth="520" Height="140">
             <Grid Background="Black"/>
-        </Expander>
+        </Expander>-->
     </Grid>
 </Window>

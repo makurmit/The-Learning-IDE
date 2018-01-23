@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace The_Learning_IDE.Models
 {
@@ -46,6 +48,13 @@ namespace The_Learning_IDE.Models
             get;
             set;
         }
+
+
+        //public static void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    Debug.WriteLine("tab down");
+        //}
+
 
     }
 }

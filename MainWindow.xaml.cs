@@ -59,6 +59,17 @@ namespace The_Learning_IDE
             SaveFile(path, StringInfo, CurrIndex);
         }
 
+        private void TabManageClick(object sender, RoutedEventArgs e)
+        {
+            ManageTabs mt = new ManageTabs(tabs);
+            mt.Show();
+        }
+
+        public void TabBarUpdate()
+        {
+            //run once save changes is clicked on ManageTabs
+        }
+
         private void LessonClick(object sender, RoutedEventArgs e)
         {
             string path = "";
@@ -70,29 +81,32 @@ namespace The_Learning_IDE
             {
                 path = dlg.FileName;
 
-                try
-                {
-                    String line;
-                    String fileContent = "";
-                    StreamReader sr = new StreamReader(path);
+                LessonBox.Text = File.ReadAllText(path);
+                
+                //try
+                //{
+                //    String line;
+                //    String fileContent = "";
+                //    StreamReader sr = new StreamReader(path);
 
-                    line = sr.ReadLine();
-                    while (line != null)
-                    {
-                        fileContent += line;
-                        line = sr.ReadLine();
-                    }
+                //    line = sr.ReadLine();
+                //    while (line != null)
+                //    {
+                //        fileContent += line;
+                //        line = sr.ReadLine();
+                //    }
 
-                    sr.Close();
+                //    sr.Close();
 
-                    LessonBox.Text = fileContent;
+                //    LessonBox.Text = fileContent;
 
-                }
+                //}
 
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.ToString());
-                }
+                //catch (Exception ex)
+                //{
+                //    Debug.WriteLine(ex.ToString());
+                //}
+
             }
         }
 
@@ -119,18 +133,20 @@ namespace The_Learning_IDE
                 {
                     try
                     {
-                        String line;
-                        String fileContent = "";
-                        StreamReader sr = new StreamReader(NewPath);
+                        //String line;
+                        //String fileContent = "";
+                        //StreamReader sr = new StreamReader(NewPath);
 
-                        line = sr.ReadLine();
-                        while (line != null)
-                        {
-                            fileContent += line;
-                            line = sr.ReadLine();
-                        }
+                        //line = sr.ReadLine();
+                        //while (line != null)
+                        //{
+                        //    fileContent += line;
+                        //    line = sr.ReadLine();
+                        //}
 
-                        sr.Close();
+                        //sr.Close();
+
+                        string fileContent = File.ReadAllText(NewPath);
 
                         string extension = System.IO.Path.GetExtension(NewPath).ToUpper();
                         Language l;
@@ -201,14 +217,22 @@ namespace The_Learning_IDE
 
         public void SaveFile(string path, string StringInfo, int tabIndex)
         {
+            if (tabs[TabBar.SelectedIndex].unSavedChanges)
+            {
+                SaveCurrTab();
+            }
+
             try
             {
+                Debug.WriteLine(tabs[TabBar.SelectedIndex].rtf);
 
-                using (FileStream fs = File.OpenWrite(path))
-                {
-                    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
-                    fs.Write(info, 0, info.Length);
-                }
+                File.WriteAllText(path, StringInfo);
+
+                //using (FileStream fs = File.OpenWrite(path))
+                //{
+                //    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
+                //    fs.Write(info, 0, info.Length);
+                //}
 
                 tabs[tabIndex].unSavedChanges = false;
 
@@ -313,6 +337,9 @@ namespace The_Learning_IDE
             {
                 MMTabItem ti = TabBar.SelectedItem as MMTabItem;
                 string currDirectory = System.IO.Path.GetDirectoryName(ti.filePath);
+
+                SaveCurrTab();
+                SaveFile(ti.filePath, ti.rtf, TabBar.SelectedIndex);
 
                 switch (ti.fileLanguage)
                 {

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ManageTabs.xaml.cs">
+      <DependentUpon>ManageTabs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\MMTabItem.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="SaveChanges.xaml.cs">
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManageTabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SaveChanges.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
