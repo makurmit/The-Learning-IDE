@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,20 @@ namespace The_Learning_IDE
         {
             InitializeComponent();
 
+            ObservableCollection<string> theTabs = new ObservableCollection<string>();
+
             foreach (MMTabItem ti in tabs)
             {
-                Label name = new Label()
-                {
-                    Content = ti.fileName,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Height = 20
-                };
-                theGrid.Items.Add(name);
+                theTabs.Add(ti.fileName);
+                //Label name = new Label()
+                //{
+                //    Content = ti.fileName,
+                //    VerticalAlignment = VerticalAlignment.Center,
+                //    HorizontalAlignment = HorizontalAlignment.Center,
+                //    Height = 20
+                //};
+                //theGrid.Items.Add(name);
+                
 
                 //Button Bx = new Button()
                 //{
@@ -48,6 +53,7 @@ namespace The_Learning_IDE
 
                 //theGrid.Children.Add(Bx);
             }
+            theGrid.ItemsSource = theTabs;
         }
 
 

@@ -11,8 +11,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="theGrid" AutoGenerateColumns="False">
-            <DataGridTextColumn Header="Tab"/>
+        <DataGrid x:Name="theGrid" AutoGenerateColumns="False"
+                  DataContext="{Binding ElementName=theGrid, Path=SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tab" Width="450" Binding="{Binding Tab}"/>
+            </DataGrid.Columns>
         </DataGrid>
 
         <Button Content="Save" Grid.Row="1" 

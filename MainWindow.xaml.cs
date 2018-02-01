@@ -39,7 +39,7 @@ namespace The_Learning_IDE
             bNewFile = false;
             TextField.Document.Blocks.Clear();
             LessonExpander.IsExpanded = true;
-            LessonBox.Text = File.ReadAllText(@"C:\Users\Mitch\Desktop\testfiles\lessons\Help\Welcome.txt");
+            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Welcome.txt");
         }
 
         private void NewFileButtonClick(object sender, RoutedEventArgs e)
