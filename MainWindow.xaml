@@ -22,8 +22,10 @@
                     Content="Open File" Click="OpenFileClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Save File" Click="SaveFileClick"/>
+            <!--<Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"
+                    Content="Manage Tabs" Click="TabManageClick"/>-->
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"
-                    Content="Manage Tabs" Click="TabManageClick"/>
+                    Content="Clear Tabs" Click="ClearTabsClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
                     Content="Lessons" Click="LessonClick"/>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     

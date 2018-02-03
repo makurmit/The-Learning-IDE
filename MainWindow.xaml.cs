@@ -67,6 +67,13 @@ namespace The_Learning_IDE
             mt.Show();
         }
 
+        private void ClearTabsClick(object sender, RoutedEventArgs e)
+        {
+            TextField.IsEnabled = false;
+            //TabBar.Items.Clear();
+            //tabs.Clear();
+        }
+
         public void TabBarUpdate()
         {
             //run once save changes is clicked on ManageTabs
