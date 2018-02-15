@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
+        Background="Black"
         Title="CreateNewFile" Height="300" Width="450">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +30,8 @@
                 <Label Content="Filename:" 
                    Grid.Row="0" Grid.Column="0"
                    HorizontalAlignment="Right"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center"
+                   Foreground="LightGray"/>
                 <TextBox x:Name="FileNameBox"
                      Grid.Row="0" Grid.Column="1"
                      Width="200" Background="LightGray"
@@ -38,7 +40,8 @@
                 <Label Content="Directory:"
                    Grid.Row="1" Grid.Column="0"
                    HorizontalAlignment="Right"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center"
+                   Foreground="LightGray"/>
                 <TextBox x:Name="DirectoryBox"
                      Grid.Row="1" Grid.Column="1"
                      Width="150" Background="LightGray"
@@ -66,7 +69,6 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -85,34 +87,30 @@
             <RadioButton Grid.Row="3"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
-                         x:Name="JavaScriptButton"/>
-            <RadioButton Grid.Row="4"
-                         HorizontalAlignment="Right"
-                         VerticalAlignment="Center"
                          x:Name="PythonButton"/>
-            <RadioButton Grid.Row="5"
+            <RadioButton Grid.Row="4"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
                          x:Name="RubyButton"/>
             <Label Grid.Row="1" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
+                   Foreground="LightGray"
                    Content="C#"/>
             <Label Grid.Row="2" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
+                   Foreground="LightGray"
                    Content="Java"/>
             <Label Grid.Row="3" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   Content="JavaScript"/>
+                   Foreground="LightGray"
+                   Content="Python"/>
             <Label Grid.Row="4" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   Content="Python"/>
-            <Label Grid.Row="5" Grid.Column="1"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
+                   Foreground="LightGray"
                    Content="Ruby"/>
 
             <Button Content="Create" Click="CreateButtonClick"

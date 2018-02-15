@@ -18,7 +18,7 @@ namespace The_Learning_IDE
             InitializeComponent();
 
             //testing purposes only, delete later
-            DirectoryBox.Text = @"C:\Users\Mitch\Desktop\testfiles\filedump";
+            DirectoryBox.Text = @"C:\Users\Mitch\Desktop\testfiles";
 
             theMainWindow = mw;
         }
@@ -54,11 +54,6 @@ namespace The_Learning_IDE
             {
                 l = The_Learning_IDE.Language.Java;
                 extension = ".java";
-            }
-            else if (JavaScriptButton.IsChecked == true)
-            {
-                l = The_Learning_IDE.Language.JavaScript;
-                extension = ".js";
             }
             else if (PythonButton.IsChecked == true)
             {

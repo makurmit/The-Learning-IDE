@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
+        Background="Black"
         Title="SaveChanges" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,7 +14,7 @@
         </Grid.RowDefinitions>
         <Label Content="There are unsaved changes, would you like to save and exit?"
                HorizontalAlignment="Center" VerticalAlignment="Center"
-               FontSize="18"/>
+               FontSize="18" Foreground="LightGray"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

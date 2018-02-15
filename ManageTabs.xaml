@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
+        Background="Black"
         Title="ManageTabs" Height="300" Width="500">
     <Grid Margin="20">
         <Grid.RowDefinitions>

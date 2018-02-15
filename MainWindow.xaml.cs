@@ -121,7 +121,7 @@ namespace The_Learning_IDE
 
         private void HelpClick(object sender, RoutedEventArgs e)
         {
-            LessonBox.Text = File.ReadAllText(@"C:\Users\Mitch\Desktop\testfiles\lessons\Help\Help.txt");
+            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Help.txt");
         }
 
         private void OpenFile()
@@ -172,9 +172,6 @@ namespace The_Learning_IDE
                                 break;
                             case ".JAVA":
                                 l = The_Learning_IDE.Language.Java;
-                                break;
-                            case ".JS":
-                                l = The_Learning_IDE.Language.JavaScript;
                                 break;
                             case ".PY":
                                 l = The_Learning_IDE.Language.Python;
@@ -366,8 +363,9 @@ namespace The_Learning_IDE
                         System.Diagnostics.Process.Start("CMD.exe", javaText);
                         break;
                     case The_Learning_IDE.Language.Csharp:
-                        break;
-                    case The_Learning_IDE.Language.JavaScript:
+                        string fileNameNoCS = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
+                        string csText = $"/K cd {currDirectory} && csc {ti.fileName} && {fileNameNoCS}.exe";
+                        System.Diagnostics.Process.Start("CMD.exe", csText);
                         break;
                     default:
                         Debug.WriteLine($"Error language {ti.fileLanguage}");
