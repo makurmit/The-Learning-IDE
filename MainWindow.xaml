@@ -16,34 +16,33 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
-                    Click="NewFileButtonClick"  Content="New File"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="NewFileButtonClick" Content="New File"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
                     Content="Open File" Click="OpenFileClick"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
                     Content="Save File" Click="SaveFileClick"/>
-            <!--<Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"
+            <!--<Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
                     Content="Manage Tabs" Click="TabManageClick"/>-->
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
                     Content="Clear Tabs" Click="ClearTabsClick"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
                     Content="Lessons" Click="LessonClick"/>
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
                     Content="Fundamentals" />
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
                     Content="Glossary" />
-            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0"     
-                    Content="Run" Click="RunClick"/>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="80, 0, 5, 0"
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
                     Content="Help" Click="HelpClick"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Content="Run" Click="RunClick"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
             <TabControl Height="20" VerticalAlignment="Bottom"
-                        x:Name="TabBar" ItemsSource="{Binding}"
+                        x:Name="TabBar"
                         SelectionChanged="TabBar_SelectionChanged"
-                        Background="Black" 
-                        MouseRightButtonDown="TabBar_MouseRightButtonDown">
+                        Background="Black">
             </TabControl>
         </Grid>
         
@@ -68,7 +67,7 @@
                          MinHeight="10" MinWidth="340"
                          AcceptsTab="True" AcceptsReturn="True"
                          TextChanged="UnsavedChanges"
-                         IsEnabled="False"/>
+                         IsEnabled="False" VerticalScrollBarVisibility="Auto"/>
 
             <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
                       Background="Black" BorderBrush="Black" BorderThickness="1"
