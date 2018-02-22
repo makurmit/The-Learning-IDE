@@ -40,9 +40,17 @@ namespace The_Learning_IDE
 			TextField.Document.Blocks.Clear();
 			LessonExpander.IsExpanded = true;
 			LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Welcome.txt");
-		}
 
-		private void NewFileButtonClick(object sender, RoutedEventArgs e)
+            TheLineCounter.Document.Blocks.Clear();
+            string lines = "";
+            for (int i = 1; i <= 999; i++)
+            {
+                lines += $"{i}\n";
+            }
+            TheLineCounter.Document.Blocks.Add(new Paragraph(new Run(lines)));
+        }
+
+        private void NewFileButtonClick(object sender, RoutedEventArgs e)
 		{
 			CreateNewFile NewFileWindow = new CreateNewFile(this);
 			NewFileWindow.Show();
@@ -72,21 +80,21 @@ namespace The_Learning_IDE
 
 		private void ClearTabsClick(object sender, RoutedEventArgs e)
 		{
-            if (TabBar.HasItems)
-            {
-                TextField.IsEnabled = false;
+			if (TabBar.HasItems)
+			{
+				TextField.IsEnabled = false;
 
-                tabs.Clear();
-                TabBar.SelectionChanged -= TabBar_SelectionChanged;
-                TabBar.Items.Clear();
-                TabBar.SelectionChanged += TabBar_SelectionChanged;
-                TextField.Document.Blocks.Clear();
+				tabs.Clear();
+				TabBar.SelectionChanged -= TabBar_SelectionChanged;
+				TabBar.Items.Clear();
+				TabBar.SelectionChanged += TabBar_SelectionChanged;
+				TextField.Document.Blocks.Clear();
 
-                TabBar.Items.Refresh();
-                CurrIndex = 0;
-                CurrentFilePath = "";
-            }
-        }
+				TabBar.Items.Refresh();
+				CurrIndex = 0;
+				CurrentFilePath = "";
+			}
+		}
 
 		public void TabBarUpdate()
 		{
@@ -388,6 +396,10 @@ namespace The_Learning_IDE
 			}
 		}
 
-
+		private void TextField_ScrollChanged(object sender, ScrollChangedEventArgs e)
+		{
+			TheLineCounter.ScrollToVerticalOffset(e.VerticalOffset);
 		}
+
+	}
 }

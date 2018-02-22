@@ -49,16 +49,17 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="35"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <TextBlock HorizontalAlignment="Left" Grid.Column="0"
-                       MinHeight="200" Width="10" 
+            <RichTextBox HorizontalAlignment="Left" Grid.Column="0"
+                       MinHeight="200" Width="35" 
+                       x:Name="TheLineCounter"
                        Background="Black" Foreground="White"
                        IsEnabled="False">
-            </TextBlock>
+            </RichTextBox>
 
             <RichTextBox x:Name="TextField" Grid.Column="1"
                          HorizontalAlignment="Stretch"
@@ -67,7 +68,8 @@
                          MinHeight="10" MinWidth="340"
                          AcceptsTab="True" AcceptsReturn="True"
                          TextChanged="UnsavedChanges"
-                         IsEnabled="False" VerticalScrollBarVisibility="Auto"/>
+                         IsEnabled="False" VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.ScrollChanged="TextField_ScrollChanged"/>
 
             <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
                       Background="Black" BorderBrush="Black" BorderThickness="1"
