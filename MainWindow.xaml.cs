@@ -20,26 +20,26 @@ using The_Learning_IDE.Models;
 namespace The_Learning_IDE
 {
 
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		private String CurrentFilePath;
-		private int CurrIndex;
-		private bool bNewFile;
-		public List<MMTabItem> tabs = new List<MMTabItem>();
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private String CurrentFilePath;
+        private int CurrIndex;
+        private bool bNewFile;
+        public List<MMTabItem> tabs = new List<MMTabItem>();
 
-		public MainWindow()
-		{
-			//debug.writeline("this is how you console write in wpf");
-			InitializeComponent();
-			CurrIndex = 0;
-			CurrentFilePath = "";
-			bNewFile = false;
-			TextField.Document.Blocks.Clear();
-			LessonExpander.IsExpanded = true;
-			LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Welcome.txt");
+        public MainWindow()
+        {
+            //debug.writeline("this is how you console write in wpf");
+            InitializeComponent();
+            CurrIndex = 0;
+            CurrentFilePath = "";
+            bNewFile = false;
+            TextField.Document.Blocks.Clear();
+            LessonExpander.IsExpanded = true;
+            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Welcome.txt");
 
             TheLineCounter.Document.Blocks.Clear();
             string lines = "";
@@ -51,355 +51,348 @@ namespace The_Learning_IDE
         }
 
         private void NewFileButtonClick(object sender, RoutedEventArgs e)
-		{
-			CreateNewFile NewFileWindow = new CreateNewFile(this);
-			NewFileWindow.Show();
-		}
+        {
+            CreateNewFile NewFileWindow = new CreateNewFile(this);
+            NewFileWindow.Show();
+        }
 
-		private void OpenFileClick(object sender, RoutedEventArgs e)
-		{
-			OpenFile();
-		}
+        private void OpenFileClick(object sender, RoutedEventArgs e)
+        {
+            OpenFile();
+        }
 
-		private void SaveFileClick(object sender, RoutedEventArgs e)
-		{
-			if (TextField.IsEnabled)
-			{
-				String path = CurrentFilePath;
-				String StringInfo = tabs[CurrIndex].rtf;
+        private void SaveFileClick(object sender, RoutedEventArgs e)
+        {
+            if (TextField.IsEnabled)
+            {
+                String path = CurrentFilePath;
+                String StringInfo = tabs[CurrIndex].rtf;
 
-				SaveFile(path, StringInfo, CurrIndex);
-			}
-		}
+                SaveFile(path, StringInfo, CurrIndex);
+            }
+        }
 
-		private void TabManageClick(object sender, RoutedEventArgs e)
-		{
-			ManageTabs mt = new ManageTabs(tabs);
-			mt.Show();
-		}
+        private void TabManageClick(object sender, RoutedEventArgs e)
+        {
+            ManageTabs mt = new ManageTabs(tabs);
+            mt.Show();
+        }
 
-		private void ClearTabsClick(object sender, RoutedEventArgs e)
-		{
-			if (TabBar.HasItems)
-			{
-				TextField.IsEnabled = false;
+        private void ClearTabsClick(object sender, RoutedEventArgs e)
+        {
+            if (TabBar.HasItems)
+            {
+                TextField.IsEnabled = false;
 
-				tabs.Clear();
-				TabBar.SelectionChanged -= TabBar_SelectionChanged;
-				TabBar.Items.Clear();
-				TabBar.SelectionChanged += TabBar_SelectionChanged;
-				TextField.Document.Blocks.Clear();
+                tabs.Clear();
+                TabBar.SelectionChanged -= TabBar_SelectionChanged;
+                TabBar.Items.Clear();
+                TabBar.SelectionChanged += TabBar_SelectionChanged;
+                TextField.Document.Blocks.Clear();
 
-				TabBar.Items.Refresh();
-				CurrIndex = 0;
-				CurrentFilePath = "";
-			}
-		}
+                TabBar.Items.Refresh();
+                CurrIndex = 0;
+                CurrentFilePath = "";
+            }
+        }
 
-		public void TabBarUpdate()
-		{
-			//run once save changes is clicked on ManageTabs
-		}
+        public void TabBarUpdate()
+        {
+            //run once save changes is clicked on ManageTabs
+        }
 
-		private void LessonClick(object sender, RoutedEventArgs e)
-		{
-			string path = "";
-			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+        private void LessonClick(object sender, RoutedEventArgs e)
+        {
+            string path = "";
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.InitialDirectory = @"C:\school\Capstone\PROJECT\lessons";
 
-			Nullable<bool> result = dlg.ShowDialog();
+            Nullable<bool> result = dlg.ShowDialog();
 
-			if (result == true)
-			{
-				path = dlg.FileName;
+            if (result == true)
+            {
+                path = dlg.FileName;
 
-				LessonBox.Text = File.ReadAllText(path);
-				
-				//try
-				//{
-				//    String line;
-				//    String fileContent = "";
-				//    StreamReader sr = new StreamReader(path);
+                LessonBox.Text = File.ReadAllText(path);
+            }
+        }
 
-				//    line = sr.ReadLine();
-				//    while (line != null)
-				//    {
-				//        fileContent += line;
-				//        line = sr.ReadLine();
-				//    }
+        private void HelpClick(object sender, RoutedEventArgs e)
+        {
+            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Help.txt");
+        }
 
-				//    sr.Close();
+        private void OpenFile()
+        {
+            string NewPath = "";
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-				//    LessonBox.Text = fileContent;
+            Nullable<bool> result = dlg.ShowDialog();
 
-				//}
+            if (result == true)
+            {
+                NewPath = dlg.FileName;
 
-				//catch (Exception ex)
-				//{
-				//    Debug.WriteLine(ex.ToString());
-				//}
+                bool exists = false;
+                foreach (MMTabItem ti in tabs) {
+                    if (ti.filePath.Equals(NewPath))
+                    {
+                        exists = true;
+                    }
+                }
 
-			}
-		}
+                if (!exists)
+                {
+                    try
+                    {
+                        //String line;
+                        //String fileContent = "";
+                        //StreamReader sr = new StreamReader(NewPath);
 
-		private void HelpClick(object sender, RoutedEventArgs e)
-		{
-			LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Help.txt");
-		}
+                        //line = sr.ReadLine();
+                        //while (line != null)
+                        //{
+                        //    fileContent += line;
+                        //    line = sr.ReadLine();
+                        //}
 
-		private void OpenFile()
-		{
-			string NewPath = "";
-			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+                        //sr.Close();
 
-			Nullable<bool> result = dlg.ShowDialog();
+                        string fileContent = File.ReadAllText(NewPath);
 
-			if (result == true)
-			{
-				NewPath = dlg.FileName;
+                        string extension = System.IO.Path.GetExtension(NewPath).ToUpper();
+                        Language l;
 
-				bool exists = false;
-				foreach (MMTabItem ti in tabs) {
-					if (ti.filePath.Equals(NewPath))
-					{
-						exists = true;
-					}
-				}
+                        switch (extension)
+                        {
+                            case ".CS":
+                                l = The_Learning_IDE.Language.Csharp;
+                                break;
+                            case ".JAVA":
+                                l = The_Learning_IDE.Language.Java;
+                                break;
+                            case ".PY":
+                                l = The_Learning_IDE.Language.Python;
+                                break;
+                            case ".RB":
+                                l = The_Learning_IDE.Language.Ruby;
+                                break;
+                            default:
+                                l = The_Learning_IDE.Language.Text;
+                                break;
+                        }
 
-				if (!exists)
-				{
-					try
-					{
-						//String line;
-						//String fileContent = "";
-						//StreamReader sr = new StreamReader(NewPath);
+                        AddFile(NewPath, fileContent, dlg.SafeFileName, l);
 
-						//line = sr.ReadLine();
-						//while (line != null)
-						//{
-						//    fileContent += line;
-						//    line = sr.ReadLine();
-						//}
+                    }
 
-						//sr.Close();
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
+                    }
+                }
 
-						string fileContent = File.ReadAllText(NewPath);
+            }
+        }
 
-						string extension = System.IO.Path.GetExtension(NewPath).ToUpper();
-						Language l;
+        public void AddFile(String FilePath, String FileContent, String fileName, Language l)
+        {
+            SaveCurrTab();
 
-						switch (extension)
-						{
-							case ".CS":
-								l = The_Learning_IDE.Language.Csharp;
-								break;
-							case ".JAVA":
-								l = The_Learning_IDE.Language.Java;
-								break;
-							case ".PY":
-								l = The_Learning_IDE.Language.Python;
-								break;
-							case ".RB":
-								l = The_Learning_IDE.Language.Ruby;
-								break;
-							default:
-								l = The_Learning_IDE.Language.Text;
-								break;
-						}
+            MMTabItem ti = new MMTabItem
+            {
+                Header = fileName,
+                filePath = FilePath,
+                rtf = FileContent,
+                fileName = fileName,
+                unSavedChanges = false,
+                fileLanguage = l
+            };
 
-						AddFile(NewPath, fileContent, dlg.SafeFileName, l);
+            tabs.Add(ti);
+            TabBar.Items.Add(ti);
 
-					}
+            CurrentFilePath = FilePath;
+            CurrIndex = tabs.IndexOf(ti);
+            bNewFile = true;
 
-					catch (Exception ex)
-					{
-						Debug.WriteLine(ex.ToString());
-					}
-				}
+            if (!TextField.IsEnabled)
+            {
+                TextField.IsEnabled = true;
+            }
 
-			}
-		}
+            ti.IsSelected = true;
+        }
 
-		public void AddFile(String FilePath, String FileContent, String fileName, Language l)
-		{
-			SaveCurrTab();
+        public void SaveFile(string path, string StringInfo, int tabIndex)
+        {
+            if (tabs[TabBar.SelectedIndex].unSavedChanges)
+            {
+                SaveCurrTab();
+            }
 
-			MMTabItem ti = new MMTabItem
-			{
-				Header = fileName,
-				filePath = FilePath,
-				rtf = FileContent,
-				fileName = fileName,
-				unSavedChanges = false,
-				fileLanguage = l
-			};
+            try
+            {
+                File.WriteAllText(path, StringInfo);
 
-			tabs.Add(ti);
-			TabBar.Items.Add(ti);
+                //using (FileStream fs = File.OpenWrite(path))
+                //{
+                //    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
+                //    fs.Write(info, 0, info.Length);
+                //}
 
-			CurrentFilePath = FilePath;
-			CurrIndex = tabs.IndexOf(ti);
-			bNewFile = true;
+                tabs[tabIndex].unSavedChanges = false;
 
-			if (!TextField.IsEnabled)
-			{
-				TextField.IsEnabled = true;
-			}
+                string tHeader = tabs[CurrIndex].Header as string;
+                if (tHeader.Contains(" * "))
+                {
+                    tHeader = tHeader.Replace(" * ", "");
+                    tabs[CurrIndex].Header = tHeader;
+                    TabBar.Items.Refresh();
+                }
+            }
 
-			ti.IsSelected = true;
-		}
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+        }
 
-		public void SaveFile(string path, string StringInfo, int tabIndex)
-		{
-			if (tabs[TabBar.SelectedIndex].unSavedChanges)
-			{
-				SaveCurrTab();
-			}
+        public void SaveCurrTab()
+        {
+            //take whatevers in the textfield
+            string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
+            if (fileContent != "" && fileContent != null && TextField.IsEnabled)
+            {
+                //save it into the rtfs list
+                tabs[CurrIndex].rtf = fileContent;
+            }
+        }
 
-			try
-			{
-				File.WriteAllText(path, StringInfo);
+        private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!bNewFile)
+            {
+                //if it's not a new tab save the current tab and adjust the currindex and currfilepath
+                SaveCurrTab();
+                CurrIndex = TabBar.SelectedIndex;
+                CurrentFilePath = tabs[CurrIndex].filePath;
+            }
+            else
+            {
+                bNewFile = false;
+            }
 
-				//using (FileStream fs = File.OpenWrite(path))
-				//{
-				//    Byte[] info = new UTF8Encoding(true).GetBytes(StringInfo);
-				//    fs.Write(info, 0, info.Length);
-				//}
+            TextField.Document.Blocks.Clear();
+            TextField.Document.Blocks.Add(new Paragraph(new Run(tabs[CurrIndex].rtf)));
+        }
 
-				tabs[tabIndex].unSavedChanges = false;
+        private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //close tab will change to new popup window
+            //if over current tab wip
+            //if (tabs.Count > 0)
+            //{
+            //    tabs.RemoveAt(CurrIndex);
 
-				string tHeader = tabs[CurrIndex].Header as string;
-				if (tHeader.Contains(" * "))
-				{
-					tHeader = tHeader.Replace(" * ", "");
-					tabs[CurrIndex].Header = tHeader;
-					TabBar.Items.Refresh();
-				}
-			}
+            //    if (CurrIndex > 0)
+            //    {
+            //        CurrIndex -= 1;
+            //    }
 
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.ToString());
-			}
-		}
+            //    CurrentFilePath = tabs[CurrIndex].filePath;
+            //}
+        }
 
-		public void SaveCurrTab()
-		{
-			//take whatevers in the textfield
-			string fileContent = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd).Text;
-			if (fileContent != "" && fileContent != null && TextField.IsEnabled)
-			{
-				//save it into the rtfs list
-				tabs[CurrIndex].rtf = fileContent;
-			}
-		}
+        private void UnsavedChanges(object sender, TextChangedEventArgs e)
+        {
+            //first time opening
+            if (TextField.IsEnabled)
+            {
+                tabs[CurrIndex].unSavedChanges = true;
+                string theHeader = tabs[CurrIndex].Header as string;
+                if (!theHeader.Contains(" * "))
+                {
+                    tabs[CurrIndex].Header += " * ";
+                }
 
-		private void TabBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			if (!bNewFile)
-			{
-				//if it's not a new tab save the current tab and adjust the currindex and currfilepath
-				SaveCurrTab();
-				CurrIndex = TabBar.SelectedIndex;
-				CurrentFilePath = tabs[CurrIndex].filePath;
-			}
-			else
-			{
-				bNewFile = false;
-			}
+            }
+        }
 
-			TextField.Document.Blocks.Clear();
-			TextField.Document.Blocks.Add(new Paragraph(new Run(tabs[CurrIndex].rtf)));
-		}
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool changes = false;
+            foreach (MMTabItem ti in tabs)
+            {
+                if (ti.unSavedChanges)
+                {
+                    changes = true;
+                }
+            }
 
-		private void TabBar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-		{
-			//close tab will change to new popup window
-			//if over current tab wip
-			//if (tabs.Count > 0)
-			//{
-			//    tabs.RemoveAt(CurrIndex);
+            if (changes)
+            {
+                e.Cancel = true;
+                SaveChanges sc = new SaveChanges(this);
+                sc.Show();
+            }
+        }
 
-			//    if (CurrIndex > 0)
-			//    {
-			//        CurrIndex -= 1;
-			//    }
+        private void RunClick(object sender, RoutedEventArgs e)
+        {
+            if (TabBar.HasItems)
+            {
+                MMTabItem ti = TabBar.SelectedItem as MMTabItem;
+                string currDirectory = System.IO.Path.GetDirectoryName(ti.filePath);
 
-			//    CurrentFilePath = tabs[CurrIndex].filePath;
-			//}
-		}
+                SaveCurrTab();
+                SaveFile(ti.filePath, ti.rtf, TabBar.SelectedIndex);
 
-		private void UnsavedChanges(object sender, TextChangedEventArgs e)
-		{
-			//first time opening
-			if (TextField.IsEnabled)
-			{
-				tabs[CurrIndex].unSavedChanges = true;
-				string theHeader = tabs[CurrIndex].Header as string;
-				if (!theHeader.Contains(" * "))
-				{
-					tabs[CurrIndex].Header += " * ";
-				}
+                switch (ti.fileLanguage)
+                {
+                    case The_Learning_IDE.Language.Python:
+                    case The_Learning_IDE.Language.Ruby:
+                        string strCmdText = $"/K cd {currDirectory} && {ti.fileName}";
+                        System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+                        break;
+                    case The_Learning_IDE.Language.Java:
+                        string fileNameNoJava = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
+                        string javaText = $"/K cd {currDirectory} && javac {ti.fileName} && java {fileNameNoJava}";
+                        System.Diagnostics.Process.Start("CMD.exe", javaText);
+                        break;
+                    case The_Learning_IDE.Language.Csharp:
+                        string fileNameNoCS = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
+                        string csText = $"/K cd {currDirectory} && csc {ti.fileName} && {fileNameNoCS}.exe";
+                        System.Diagnostics.Process.Start("CMD.exe", csText);
+                        break;
+                    default:
+                        Debug.WriteLine($"Error language {ti.fileLanguage} {ti.filePath}");
+                        break;
+                }
+            }
+        }
 
-			}
-		}
+        private void TextField_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            TheLineCounter.ScrollToVerticalOffset(e.VerticalOffset);
+        }
 
-		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			bool changes = false;
-			foreach (MMTabItem ti in tabs)
-			{
-				if (ti.unSavedChanges)
-				{
-					changes = true;
-				}
-			}
+        private void ReferencesClick(object sender, RoutedEventArgs e)
+        {
+            string path = "";
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.InitialDirectory = @"C:\school\Capstone\PROJECT\lessons\Fundamentals";
 
-			if (changes)
-			{
-				e.Cancel = true;
-				SaveChanges sc = new SaveChanges(this);
-				sc.Show();
-			}
-		}
+            Nullable<bool> result = dlg.ShowDialog();
 
-		private void RunClick(object sender, RoutedEventArgs e)
-		{
-			if (TabBar.HasItems)
-			{
-				MMTabItem ti = TabBar.SelectedItem as MMTabItem;
-				string currDirectory = System.IO.Path.GetDirectoryName(ti.filePath);
+            if (result == true)
+            {
+                path = dlg.FileName;
 
-				SaveCurrTab();
-				SaveFile(ti.filePath, ti.rtf, TabBar.SelectedIndex);
+                LessonBox.Text = File.ReadAllText(path);
+            }
 
-				switch (ti.fileLanguage)
-				{
-					case The_Learning_IDE.Language.Python:
-					case The_Learning_IDE.Language.Ruby:
-						string strCmdText = $"/K cd {currDirectory} && {ti.fileName}";
-						System.Diagnostics.Process.Start("CMD.exe", strCmdText);
-						break;
-					case The_Learning_IDE.Language.Java:
-						string fileNameNoJava = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
-						string javaText = $"/K cd {currDirectory} && javac {ti.fileName} && java {fileNameNoJava}";
-						System.Diagnostics.Process.Start("CMD.exe", javaText);
-						break;
-					case The_Learning_IDE.Language.Csharp:
-						string fileNameNoCS = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
-						string csText = $"/K cd {currDirectory} && csc {ti.fileName} && {fileNameNoCS}.exe";
-						System.Diagnostics.Process.Start("CMD.exe", csText);
-						break;
-					default:
-						Debug.WriteLine($"Error language {ti.fileLanguage} {ti.filePath}");
-						break;
-				}
-			}
-		}
-
-		private void TextField_ScrollChanged(object sender, ScrollChangedEventArgs e)
-		{
-			TheLineCounter.ScrollToVerticalOffset(e.VerticalOffset);
-		}
+        }
 
 	}
 }
