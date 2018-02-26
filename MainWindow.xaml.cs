@@ -394,5 +394,13 @@ namespace The_Learning_IDE
 
         }
 
-	}
+        private void GlossaryClick(object sender, RoutedEventArgs e)
+        {
+            string content = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Glossary\Glossary.txt");
+            Glossary g = new Glossary(content);
+            g.Show();
+        }
+
+
+    }
 }

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Glossary.xaml.cs">
+      <DependentUpon>Glossary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManageTabs.xaml.cs">
       <DependentUpon>ManageTabs.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
       <DependentUpon>SaveChanges.xaml</DependentUpon>
     </Compile>
     <Page Include="CreateNewFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Glossary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
