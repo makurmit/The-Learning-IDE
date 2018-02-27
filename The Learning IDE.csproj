@@ -58,6 +58,9 @@
     <Compile Include="Glossary.xaml.cs">
       <DependentUpon>Glossary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JavaScript.xaml.cs">
+      <DependentUpon>JavaScript.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManageTabs.xaml.cs">
       <DependentUpon>ManageTabs.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Glossary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JavaScript.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
         Background="Black"
-        Title="SaveChanges" Height="300" Width="500">
+        Title="Save Changes" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>

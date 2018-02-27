@@ -10,6 +10,7 @@ namespace The_Learning_IDE
     {
         Csharp,
         Java,
+        JavaScript,
         Python,
         Ruby,
         Text

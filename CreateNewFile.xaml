@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
         Background="Black"
-        Title="CreateNewFile" Height="300" Width="450">
+        Title="Create New File" Height="300" Width="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -69,6 +69,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -87,8 +88,12 @@
             <RadioButton Grid.Row="3"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
-                         x:Name="PythonButton"/>
+                         x:Name="JavaScriptButton"/>
             <RadioButton Grid.Row="4"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         x:Name="PythonButton"/>
+            <RadioButton Grid.Row="5"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
                          x:Name="RubyButton"/>
@@ -106,8 +111,13 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    Foreground="LightGray"
-                   Content="Python"/>
+                   Content="JavaScript"/>
             <Label Grid.Row="4" Grid.Column="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Foreground="LightGray"
+                   Content="Python"/>
+            <Label Grid.Row="5" Grid.Column="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    Foreground="LightGray"

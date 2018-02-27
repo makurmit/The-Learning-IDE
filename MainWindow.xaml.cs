@@ -171,6 +171,9 @@ namespace The_Learning_IDE
                             case ".JAVA":
                                 l = The_Learning_IDE.Language.Java;
                                 break;
+                            case ".JS":
+                                l = The_Learning_IDE.Language.JavaScript;
+                                break;
                             case ".PY":
                                 l = The_Learning_IDE.Language.Python;
                                 break;
@@ -359,6 +362,10 @@ namespace The_Learning_IDE
                         string fileNameNoJava = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);
                         string javaText = $"/K cd {currDirectory} && javac {ti.fileName} && java {fileNameNoJava}";
                         System.Diagnostics.Process.Start("CMD.exe", javaText);
+                        break;
+                    case The_Learning_IDE.Language.JavaScript:
+                        JavaScript js = new JavaScript();
+                        js.Show();
                         break;
                     case The_Learning_IDE.Language.Csharp:
                         string fileNameNoCS = System.IO.Path.GetFileNameWithoutExtension(ti.fileName);

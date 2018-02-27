@@ -52,6 +52,11 @@ namespace The_Learning_IDE
                 l = The_Learning_IDE.Language.Java;
                 extension = ".java";
             }
+            else if (JavaScriptButton.IsChecked == true)
+            {
+                l = The_Learning_IDE.Language.JavaScript;
+                extension = ".js";
+            }
             else if (PythonButton.IsChecked == true)
             {
                 l = The_Learning_IDE.Language.Python;
@@ -106,6 +111,10 @@ namespace The_Learning_IDE
 
                     theMainWindow.AddFile(path, "", filename + extension, l);
 
+                    if (l == The_Learning_IDE.Language.JavaScript)
+                    {
+                        theMainWindow.AddFile(directory + "index.html", "", "index.html", l);
+                    }
                 }
 
                 catch (Exception ex)

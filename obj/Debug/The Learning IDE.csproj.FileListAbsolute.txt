@@ -21,3 +21,5 @@ C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\ob
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\ManageTabs.baml
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\Glossary.g.cs
 C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\Glossary.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\JavaScript.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\JavaScript.baml
