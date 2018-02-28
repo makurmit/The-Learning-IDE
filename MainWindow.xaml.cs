@@ -339,6 +339,10 @@ namespace The_Learning_IDE
                 SaveChanges sc = new SaveChanges(this);
                 sc.Show();
             }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         private void RunClick(object sender, RoutedEventArgs e)

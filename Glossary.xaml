@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
         Background="Black"
-        Title="Glossary" Height="500" Width="300">
+        Title="Glossary" Height="500" Width="600">
     <Grid>
         <TextBox 
             x:Name="TheTextBox"
-            Margin="10" 
+            Margin="10" VerticalScrollBarVisibility="Auto"
             Background="Black" Foreground="White"/>
     </Grid>
 </Window>
