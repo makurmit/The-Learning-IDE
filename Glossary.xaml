@@ -8,8 +8,39 @@
         Background="Black"
         Title="Glossary" Height="500" Width="600">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel 
+            Grid.Row="0" Orientation="Horizontal" 
+            Margin="10, 5, 10, 0">
+            <TextBox 
+                x:Name="SearchBox" Grid.Row="0"
+                Padding="2" MinWidth="420"
+                Background="Black" Foreground="White"
+                />
+
+            <Button 
+                Width="60" Margin="10, 0, 0, 0" 
+                HorizontalAlignment="Right"
+                Content="Search" FontSize="16"
+                Click="Search_Click"
+                />
+
+            <Button
+                Width="65" Margin="10, 0, 0, 0" 
+                HorizontalAlignment="Right"
+                Content="Refresh" FontSize="16"
+                Click="Refresh_Click"
+                />
+        </StackPanel>
+
         <TextBox 
-            x:Name="TheTextBox"
+            x:Name="TheTextBox" Grid.Row="1" IsReadOnly="True"
             Margin="10" VerticalScrollBarVisibility="Auto"
             Background="Black" Foreground="White"/>
     </Grid>
