@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="fundamentals.xaml.cs">
+      <DependentUpon>fundamentals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Glossary.xaml.cs">
       <DependentUpon>Glossary.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <DependentUpon>SaveChanges.xaml</DependentUpon>
     </Compile>
     <Page Include="CreateNewFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fundamentals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,16 +263,17 @@
     <Resource Include="Resources\lessons\Chapter 7\Introduction.txt" />
     <Resource Include="Resources\lessons\Chapter 7\Lesson 1.txt" />
     <Resource Include="Resources\lessons\Chapter 7\Lesson 2.txt" />
-    <Resource Include="Resources\lessons\Fundamentals\Csharp Fundamentals.txt" />
-    <Resource Include="Resources\lessons\Fundamentals\Java Fundamentals.txt" />
-    <Resource Include="Resources\lessons\Fundamentals\JavaScript Fundamentals.txt" />
-    <Resource Include="Resources\lessons\Fundamentals\Python Fundamentals.txt" />
-    <Resource Include="Resources\lessons\Fundamentals\Ruby Fundamentals.txt" />
+    <Resource Include="Resources\Csharp Fundamentals.txt" />
+    <Resource Include="Resources\Java Fundamentals.txt" />
+    <Resource Include="Resources\JavaScript Fundamentals.txt" />
+    <Resource Include="Resources\Python Fundamentals.txt" />
+    <Resource Include="Resources\Ruby Fundamentals.txt" />
     <Content Include="bin\Debug\The Learning IDE.exe" />
     <Content Include="bin\Debug\The Learning IDE.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="Resources\lessons\Fundamentals\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

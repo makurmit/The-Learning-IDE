@@ -396,19 +396,8 @@ namespace The_Learning_IDE
 
         private void ReferencesClick(object sender, RoutedEventArgs e)
         {
-            string path = "";
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.InitialDirectory = @"C:\school\Capstone\PROJECT\lessons\Fundamentals";
-
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                path = dlg.FileName;
-
-                LessonBox.Text = File.ReadAllText(path);
-            }
-
+            fundamentals f = new fundamentals();
+            f.Show();
         }
 
         private void GlossaryClick(object sender, RoutedEventArgs e)

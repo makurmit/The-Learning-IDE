@@ -61,6 +61,18 @@ namespace The_Learning_IDE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C# Fundamentals
+        ///
+        ///Introduction: 
+        ///	C# is an object orientated, statically and strongly typed, compiled language. C# allows for creation of objects which can interact with each other and hold more information. Statically typed languages require variable types to be declared, for instance &quot;int num&quot; instead of just &quot;num&quot;. Strongly typed means variables cannot change typing without some means of parsing or casting. Lastly C# is compiled which allows for faster program boot time, but requires the code to be pro [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Csharp_Fundamentals {
+            get {
+                return ResourceManager.GetString("Csharp_Fundamentals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Array
         ///	C#
         ///		int[] nums = new int[5];
@@ -122,12 +134,80 @@ namespace The_Learning_IDE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Java Fundamentals
+        ///
+        ///Introduction: 
+        ///	Java is a compiled, statically typed, object orientated language. Java compiles the source code into machine code so it will have faster boot times. This does take a bit longer than a running a script, however larger programs benefit from compilation. Statically typed languages require the user to specify the variable type before creating it. Object Orientated languages focus on making objects which interact with each other and hold more information.
+        ///
+        ///Advantages: 
+        ///	J [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Java_Fundamentals {
+            get {
+                return ResourceManager.GetString("Java_Fundamentals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JavaScript Fundamentals
+        ///
+        ///Introduction: 
+        ///
+        ///Advantages: 
+        ///
+        ///Disadvantages: 
+        ///
+        ///Supported Platforms: 
+        ///
+        ///Versions: 
+        ///
+        ///Popular Frameworks: 
+        ///
+        ///Code Example: 
+        ///
+        ///
+        ///References:.
+        /// </summary>
+        internal static string JavaScript_Fundamentals {
+            get {
+                return ResourceManager.GetString("JavaScript_Fundamentals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Python Fundamentals
+        ///
+        ///Introduction: 
+        ///	Python is an open source scripting language. It is very approachable and dynamically typed. Open source languages are open to the public and anyone can make changes to the language. Scripting languages tend to deal with smaller programs that do one or a few tasks. Scripting languages are not compiled, they are interpreted at run time. Python is designed to be simple and readable, because of this Python is deemed a great beginning language. Dynamically typed languages  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Python_Fundamentals {
+            get {
+                return ResourceManager.GetString("Python_Fundamentals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ruby Fundamentals
+        ///
+        ///Introduction: 
+        ///	Ruby is a dynamically typed scripting language with a focus on simplicity. It is also open source. Dynamically typed languages don&apos;t require type declarations for variables. Scripting languages are not compiled and focus on smaller programs. Open source languages are supported by the community and are free to use. Lastly the focus on simplicity cuts down on a lot of annoying syntax rampant in other languages, thus making Ruby an excellent beginning language.
+        ///	
+        ///Advanta [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Ruby_Fundamentals {
+            get {
+                return ResourceManager.GetString("Ruby_Fundamentals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello and welcome to my IDE.
         ///
         ///To start press Lessons and select Chapter 1 Introduction.
         ///
         ///If you do not have the compilers for C#, Java, Python, and/or Ruby click on the help button.
-        ///.
+        ///
+        ///The text field will unlock once you have a file open..
         /// </summary>
         internal static string Welcome {
             get {

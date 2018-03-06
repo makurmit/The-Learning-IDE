@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
-        mc:Ignorable="d"
-        Title="fundamentals" Height="300" Width="300">
+        mc:Ignorable="d" Background="Black"
+        Title="fundamentals" Height="500" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center">
+            <Button Content="C#" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
+            <Button Content="Java" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
+            <Button Content="Python" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
+            <Button Content="Ruby" Padding="5" Margin="0, 0, 0, 0" Click="Button_Click"/>
+        </StackPanel>
+
+        <TextBox Background="Black" Foreground="White"
+                 IsReadOnly="True" Margin="10" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 x:Name="TheBox" Grid.Row="1"/>
     </Grid>
 </Window>
