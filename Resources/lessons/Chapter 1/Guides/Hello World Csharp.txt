@@ -1,0 +1,18 @@
+Chapter 1: Hello World C#
+
+using System;
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		Console.WriteLine("Hello World!");
+	}
+}
+
+This may look intimidating at first, but it becomes more simple later on. In best practice the file name should match the class name, in this case I named it "Program".
+
+
+The first line is declaring that this file will use the System namespace. Without this line we wouldn't be able to use "Console.WriteLine();" later. Next is the class declaration, the only thing to note here is that it is public. On the fourth line is the main method, this is where the program starts. Lastly is the sixth line "Console.WriteLine();" this takes whatever is in the parentheses and prints it out to the command window.
+
+
+Once you have completed the program press the "run" button.

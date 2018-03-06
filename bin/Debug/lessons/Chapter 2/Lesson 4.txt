@@ -1,0 +1,90 @@
+Chapter 2: The Basics
+Lesson 4: Loops
+
+Loops run certain sections of code for a specified amount of iterations. There are while, do/while, and for loops. While loops run until a boolean statement is met:
+	int num = 1;
+	while (num < 10)
+	{
+		System.out.println("Num is " + num);
+		//this increases num's value by one
+		num++;
+	}
+This will produce 10 lines of "Num is 1", "Num is 2", "Num is 3"...
+
+However if the boolean is never met the loop will continue forever (or until you kill the program):
+	while (true)
+	{
+		System.out.println("It never ends!!!")
+	}
+Be careful and make sure this doesn't happen.
+
+
+Do/while loops are essentially the same as while loops except they don't need a conditional to start the loop. The loop will continue until the conditional statement is met, just like while loops:
+	int num = 1;
+	do
+	{
+		System.out.println("num is " + num);
+		//this decreases the value of num
+		num++;
+	}while (num < 10)
+This is very useful in cases where you need the code to run but have no idea how many iterations it will take.
+
+
+Lastly is for loops, for loops run a section of code for a set number of times. There are 3 basics parts to a for loop: the initialization, a condition, and a modification. A variable is set with an initial value, most times 0, and will be modified until the condition is met.
+Let's say we need to display numbers 1 through 20, we could copy paste the same line 20 times changing one thing or just write this:
+	for (int i = 1; i <= 20; i++)
+	{
+		System.out.println(i);
+	}
+The first line: initializes an int (usually called i), specifies that the loop run until the second statement (a conditional) is met, and increments i's value. So if I wanted it to run 5 times I would say:
+	for (int i = 1; i <= 5; i++)
+	{
+		System.out.println(i);
+	}
+"i" will begin at a value of 1 and increase each time the loop is run, that is until "i" reaches 5. Another thing, "i" is just a standard, the int can be called whatever you want, as long as you follow the same pattern "int _ = 1; _ <= 5; _++". You can also change the starting value, let's say you wanted to start at 10 and reach 20, it would look like this:
+	for (int a = 10; a <= 20; a++)
+	{
+		System.out.println(a);
+	}
+
+Nested for loops are kind of tricky to use but can be very helpful. Let's say you wanted to create a times table, 10 by 10:
+	for (int x = 1; x <= 10; x++)
+	{
+		for (int y = 1; y <= 10; y++) {
+			//printf is a way to put variables in a string and assign them after
+			//this essentially prints "x * y = z"
+			//%d is for ints, %f is for doubles, and %s is for Strings
+			//\t can be used in Strings to create a tab
+			System.out.printf("%d * %d = %d\t", y, x, (x * y));
+		}
+		//this will create a new line every 10 iterations
+		System.out.println();
+	}
+The output will look something like "1 * 1 = 1	2 * 1 = 2	3 * 1 = 3	4 * 1 = 4	5 * 1 = 5"
+
+There is another type of loop (foreach) but I won't talk about it until array/lists in chapter 5.
+
+
+Now time to note the differences.
+Python doesn't have a do/while loop, it's while loop is pretty much the same but with a colon and tabs instead of {}, and it's for loops are structured like this:
+	for i in range(0,10):
+		code
+This will run 10 times, the first number in the parentheses is the beginning point for i and the second number specifies when to stop. It can be changed just like C#/Java/JavaScript by editing the arguments in the parentheses:
+	for i in range(4, 14):
+		code
+i will start at 4 and end at 10 iterations in.
+
+Ruby's while loop:
+	while (boolean) do
+		code
+	end
+Ruby's do/while loop:
+	loop do
+		code
+		break if (boolean)
+	end
+Ruby's for loop:
+	for i in 1..num do
+		code
+	end
+Similar to Python this for loop will assign the first number after "in" to i and increment it each loop.

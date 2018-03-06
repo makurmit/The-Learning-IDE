@@ -1,0 +1,71 @@
+Chapter 4: Methods
+Lesson 1: Methods
+
+We will first discuss what methods are, what they need, and how they can be created.
+
+A method is a section of code that is run when it's called. We've used a few before: print(), random(), and input(). These methods are used like tools,  we gave them input (parameters) and they gave us output. In the case of random it gave us a random number, input allowed the user to give us a string, and print() put something on the terminal. 
+
+Before we create methods we should first talk about their syntax. The main method in Java and C# is a good example:
+	public static void main(String[] args)
+	{
+		//code
+	}
+public:
+	This determines whether it can be called outside of its class, public allows it, private denies it. For our purposes we'll use public for now.
+static:
+	This specifies if an instance of the class needs to be made to call this. Random is an example of needing an instance:
+		Random rand = new Random();
+		rand.nextInt(); 
+	This required rand, we couldn't just call Random.nextInt();
+	The specifics of this is a bit complicated and will make more sense later (during the OOP section), for now don't use static.
+void:
+	This is the return type, methods with output need to specify what type of variable the output will be:
+		public int randNum()
+		{
+			int num;
+			//randomization code
+			return num;
+		}
+		public String reverseName()
+		{
+			String name;
+			//reversing code here
+			return name;
+		}
+		public boolean flipCoin()
+		{
+			boolean coin;
+			//flipping code here
+			return coin;
+		}
+	These all return their respective type. Void doesn't return anything:
+		public void printDate()
+		{
+			System.out.println("99/99/99")
+		}
+main:
+	This is just the name of the method, main is reserved in Java and C#.
+():
+	These are the parameters or arguments, it's the variables required to run this method. System.out.println(); requires a String and main requires a String array (these are the command line arguments). When creating a method you can put just about anything inside here, just understand that you'll need those variables when you call it.
+
+		
+Okay, now we're ready to tackle creating methods, Java and C# are pretty similar:
+	public int square(int num)
+	{
+		return num * num;
+	}
+Whereas Python is:
+	def square(num):
+		return num * num
+And Ruby:
+	def square(num)
+		return num * num
+	end
+	
+	
+Calling methods is fairly universal:
+	System.out.println(square(2));
+	Console.WriteLine(square(2));
+	print(square(2))
+	puts square(2)
+These will all print "4" in their respective languages. One thing to note about Python and Ruby is since they are both scripting languages the methods need to be above their calling in the file.

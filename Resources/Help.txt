@@ -1,0 +1,30 @@
+Help:
+
+Installation guide:
+  C#
+   Install Mono from http://www.mono-project.com/download/
+   Add mono to the path:
+	Add bin file location (default is in program files)
+   To verify run cmd and type "mono -V"
+  
+  Java
+   Install the latest jdk from http://www.oracle.com/technetwork/java/javase/downloads/index.html
+   Add java to the path: 
+    Add bin file location (default is program files)
+   To verify run cmd and type "java -version"
+  
+  Python
+   Install Python from https://www.python.org/downloads/
+   Add Python to the path:
+    Add exe file location (default is AppData)
+   To verify run cmd and type "python"
+  
+  Ruby
+   Install Ruby from https://rubyinstaller.org/
+   Add Ruby to the path:
+    Add bin file location (default is C:\\)
+   To verify run cmd and type "ruby -v"
+ 
+ 
+ How to add files to the path:
+  Control Panel => System => Change Settings => Advanced => Environment Variables => Path edit => add file location

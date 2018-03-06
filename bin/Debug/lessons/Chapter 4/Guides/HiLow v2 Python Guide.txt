@@ -1,0 +1,31 @@
+Chapter 4: Methods and Classes
+HiLow v2 Python Guide:
+
+One thing we need to keep in mind is where we put our code in Python. If we put the methods at the bottom of file the program won't compile them. Soo the first step we should take is create a playLoop():
+	import random
+	def playLoop():
+		playing = True
+		...
+		return playing
+Inside is everything except the prompt and first while loop. Next we need to call it inside the first while loop:
+	while (playing):
+		playing = playLoop()
+This will keep calling the playLoop until the user quits playing.
+
+Next we can refactor the guessing loop:
+	def guessLoop(answer):
+		win = False
+		...
+		return win
+First we need answer as we make it before they start guessing and shouldn't remake it everytime they guess. Next we check to see if they got the answer right, if so win = True, else if too high/low print("too high/low"). Lastly we return the boolean win.
+Now in the while loop inside the playLoop() we need to call guessLoop():
+	while (win == False):
+		win = guessLoop(answer)
+		if (win):
+			print("Congrats, you got it in", numGuesses, "guesses.")
+		else:
+			numGuesses += 1
+This will allow them to keep guessing while also incrementing the number of guesses.
+
+
+Once you have finished run it and see if it still works. Just like the previous project my program will be in the "Examples" folder.

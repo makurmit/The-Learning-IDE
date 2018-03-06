@@ -1,0 +1,187 @@
+Chapter 2: The Basics
+Cheat Sheet
+
+This document is meant as a quick reference after you have completed the lessons. Cheat sheets will show the syntax taught in each lesson but will not go in depth in any of the examples.
+
+Primitive Types 
+	whole number -
+		int
+		short
+		long
+		byte
+	floating point (decimal numbers) -
+		double
+		float
+	true or false -
+		boolean in Java
+		bool in C#
+	single character -
+		char
+	multiple characters -
+		String
+	
+	camel-case
+		type nameOfVariable = value;
+	snake-case
+		type name_of_variable = value;
+	
+	Python and Ruby don't need type declarations because they are dynamically typed
+	They still use these types but you don't need to specify them when creating variables
+	
+	
+Conditional Statements
+	if (boolean) 
+	{
+		...
+	}
+	else if (boolean) 
+	{
+		...
+	}
+	else 
+	{
+		...
+	}
+	if (!boolean) ...
+	if (int < value) ...
+	if (int >= value) ...
+	if (int == value) ...
+	if (String.Equals("value")) ...
+	if (String.EqualsIgnoreCase("value")) ...
+	if (int != value) ...
+	if (int == value || int == differentValue) ...
+		"||" means "or"
+	if (int == value && int > differentValue) ...
+		"&&" means "and"
+	Python and Ruby
+		"or" = or
+		"and" = and
+	Python
+		if (boolean):
+			...
+		elif (boolean):
+			...
+		else:
+			...
+	Ruby
+		if (boolean)
+			...
+		elsif (boolean)
+			...
+		else
+			...
+		end
+	
+	
+Switch statements
+	
+	Java and C#
+		switch (variable)
+		{
+			case value:
+				break;
+			case value:
+			case value:
+				break;
+			default:
+				break;
+		}
+	
+	Ruby
+		case variable
+		when value
+			...
+		else
+			...
+		end
+	
+	
+Comments
+	//single line in Java and C#
+	/*
+	* multi-line in Java and C#
+	*/
+	#Python and Ruby single line
+	"""
+	Python multi-line
+	"""
+	=begin
+	Ruby multi-line
+	make sure the =begin and =end are at the beginning of the line
+	=end
+
+
+Loops
+	Java and C#
+		while (conditional) 
+		{
+			...
+		}
+		do 
+		{
+			...
+		}while(conditional);
+		for (int i = 0; i < 10; i++) 
+		{
+			...
+		}
+	
+	Python:
+		for i in range(0, 10):
+			...
+		while (boolean):
+			...
+	
+	Ruby:
+		while (boolean) do
+			...
+		end
+		loop do
+			...
+			break if (boolean)
+		end
+		for i in 0..10 do
+			...
+		end
+		
+
+Random
+	Java
+		//at the top of the file
+		import java.util.Random;
+		
+		Random rand = new Random();
+		int num = rand.nextInt(50);
+		double digit = rand.nextDouble();
+		
+	C#
+		Random rand = new Random();
+		int num = rand.Next(0, 50);
+	
+	Python
+		#At the top of the file
+		import random
+		
+		num = random.randint(0,50)
+	
+	Ruby
+		num = rand(0..50)
+
+
+User Input
+	Java
+		//at the top of the file
+		import java.util.Scanner;
+	
+		Scanner scan = new Scanner(System.in);
+		String name = scan.next();
+		scan.close();
+	
+	C#
+		String name = Console.ReadLine();
+		
+	Python
+		name = input("What is your name?\n")
+	
+	Ruby
+		name = gets.chomp

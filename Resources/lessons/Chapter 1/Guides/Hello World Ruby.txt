@@ -1,0 +1,12 @@
+Chapter 1: Hello World Ruby
+
+puts "Hello World!"
+
+
+Ruby is fairly simple, there aren't that many things you need to worry about. Unlike Java and Python Ruby isn't case sensitive, tab-delimited, and it doesn't need semicolons ";" at the end of lines.
+
+
+"Puts" takes whatever is in the quotes and prints it out to the console.
+
+
+Once you have completed the program press the "run" button.

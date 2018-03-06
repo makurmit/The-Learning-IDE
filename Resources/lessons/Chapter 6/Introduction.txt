@@ -1,0 +1,20 @@
+Chapter 6: Tic Tac Toe
+Introduction
+
+If you've never played Tic Tac Toe it's a fairly simple game. Two players create a 3x3 grid, they take turns placing their respective token (x or o) in the cells, and once a player has three tokens in a row (or column or diagonal) they win. This project will utilize methods, loops, arrays, and enums. Let's get into it:
+
+
+Before we do anything we need to create the board. The board will consist of 9 cells. Cell will be an enum with three values: blank, x, and o. Once we have created the enum we can use a for loop to populate an array of 9 cells, all will be blank at the start of the game. Then we will print the board, make sure to separate the cells. Next we ask the user which token they would like, we will need to validate their input to insure they gave us x or o. The game will start with whatever token was picked first. We ask the user where they will put their token, again we need to make sure it's an int from 1-9. After that we check to see if the cell is blank, if not we tell them to place it somewhere else. Once they finish placing their token we check to see if anyone has won yet, if not then we check to see if it's a draw. After this their turn is over and goes to the next player, until someone wins or a draw. Lastly we see if the user wants to play again.
+
+
+To summarize:
+	Enum Cell: blank, x, and o
+	CreateBoard() create an Cell[] of 9 Cells and populate them to be blank
+	PrintBoard() print the board in the current state
+	WhoGoesFirst() ask the user which token they would like
+	PlayGame() loop for the game
+	PlaceToken() ask where the player will put their token
+	GetPlace() this will return a valid number for PlaceToken()
+	CheckWin() see if anyone has won
+	CheckDraw() see if there is a draw
+	PlayAgain() ask the user if they would like to play again

@@ -22,7 +22,7 @@ namespace The_Learning_IDE
 	/// </summary>
 	public partial class Glossary : Window
 	{
-		private string FileContent = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Glossary\Glossary.txt");
+        private string FileContent = Properties.Resources.Glossary;
 
 		public Glossary()
 		{

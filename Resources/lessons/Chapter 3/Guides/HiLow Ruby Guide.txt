@@ -1,0 +1,60 @@
+Chapter 3: HiLow
+Ruby Guide
+
+Create an answer between 1-100 and keep track of their guesses
+	answer = rand(1..100)
+	numGuesses = 1
+
+Prompt the user to guess 1-100
+	puts "Hello and welcome to the High-low number guessing game."
+	print "Guess a number between 1 and 100:"
+	
+Take in user input
+	Since gets.chomp returns a String we will have to convert it into a whole number "var.to_i" (this is called casting) 
+		guess = gets.chomp.to_i
+
+If they got it correct tell them how many guesses it took
+	if (guess == answer)
+		print "Congrats, you got it in ", numGuesses, " guesses.\n"
+	end
+
+Tell them if it's too high/low
+	Continuing the if statement above
+		if (guess == answer)
+			...
+		elsif (guess < answer)
+			puts "Too low"
+			numGuesses += 1
+		elsif (guess > answer)
+			puts "Too high"
+			numGuesses += 1
+		end
+
+Allow them to keep guessing until it's correct
+	This is where we need to wrap our code in a while loop, first make a boolean:
+		win = false
+		while win == false do
+			print "Guess a number between 1 and 100:"
+			...
+		end
+	We'll also have to change the win variable in order for the loop to end:
+		if (guess == answer)
+			win = true
+		...
+
+After that ask if they'd like to keep playing
+	Asking for input:
+		puts "Would you like to play again?(y/n):"
+		playAgain = gets.chomp
+		if (playAgain == "n")
+			playing = false
+			puts "Goodbye"
+		end
+	Next creating a play loop to keep the game running:
+		playing = true
+		puts "Hello and welcome to the High-low number guessing game."
+		while (playing) do
+		...
+		end
+
+And that should do it, if you'd like to see the complete code look for HiLow.rb in the examples folder.

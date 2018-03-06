@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using The_Learning_IDE.Models;
+using The_Learning_IDE.Properties;
 
 namespace The_Learning_IDE
 {
@@ -39,7 +40,8 @@ namespace The_Learning_IDE
             bNewFile = false;
             TextField.Document.Blocks.Clear();
             LessonExpander.IsExpanded = true;
-            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Welcome.txt");
+
+            LessonBox.Text = Properties.Resources.Welcome;
 
             TheLineCounter.Document.Blocks.Clear();
             string lines = "";
@@ -66,6 +68,10 @@ namespace The_Learning_IDE
             if (TextField.IsEnabled)
             {
                 String path = CurrentFilePath;
+                if (tabs[TabBar.SelectedIndex].unSavedChanges)
+                {
+                    SaveCurrTab();
+                }
                 String StringInfo = tabs[CurrIndex].rtf;
 
                 SaveFile(path, StringInfo, CurrIndex);
@@ -119,7 +125,7 @@ namespace The_Learning_IDE
 
         private void HelpClick(object sender, RoutedEventArgs e)
         {
-            LessonBox.Text = File.ReadAllText(@"C:\school\Capstone\PROJECT\lessons\Help\Help.txt");
+            LessonBox.Text = Properties.Resources.Help;
         }
 
         private void OpenFile()

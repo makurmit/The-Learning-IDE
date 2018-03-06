@@ -1,0 +1,29 @@
+Chapter 2: The Basics
+Lesson 2: Comments
+
+Comments are helpful for large projects and a necessity when working in groups. They are lines of code that will not be run. Comments are mainly used for explaining what a section of code does. Java, JavaScript, and C# use the same types of comments "//" for a single line:
+	//we need a name, age, and can vote boolean
+	String name = "Jim";
+	int age = 12;
+	boolean canVote = false;
+It can also be used in multiple lines with "/*", "*", and "*/" as the end tag:
+	/*
+	* this is a multi-line comment
+	*/
+
+	
+Python and Ruby syntax for a single line comment is "#":
+	#we need a name, age and can vote boolean
+	name = "Jim"
+	age = 12
+	canVote = False
+Python syntax for multi-line comments are triple quotes:
+	"""
+	a multi-line comment in Python
+	"""
+	
+
+Lastly Ruby's syntax for multi-line comments are "=begin" and "=end" at the beginning of lines (no spaces)
+	=begin
+	Ruby multi-line comment
+	=end

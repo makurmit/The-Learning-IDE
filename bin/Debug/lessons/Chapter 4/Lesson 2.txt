@@ -1,0 +1,18 @@
+Chapter 4: Methods
+Lesson 2: HiLow v2
+
+Let's edit the High Low guessing game we made last chapter. This is common practice in programming (refactoring) and should be done often in bigger projects.
+
+While you can rework this in any way you'd like I'm going to create 2 new methods to mainline our code. I plan on using a playLoop() and a guessLoop(). Once implemented we'll have to restructure a little bit but overall this will be a better program.
+
+After we finish make sure it runs just as before:
+	Create an answer between 1-100
+	Prompt the user to guess 1-100
+	Take in their input
+	If they got it correct tell them how many guesses it took
+	Tell them if it's too high/low
+	Allow them to keep guessing until it's correct
+	After that ask if they'd like to keep playing
+	
+
+Ultimately this may seem trivial or odd but refactoring is essential in larger projects. As you code you will realize methods are easier to manage if they do one job. Refactoring boils down large junks of code into smaller methods, making it easier to debug.

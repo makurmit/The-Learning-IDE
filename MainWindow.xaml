@@ -10,32 +10,50 @@
         Height="500" Width="1000" MinHeight="300" MinWidth="600">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         
+        
+        <!--Icons from Flaticon-->
         <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="NewFileButtonClick" Content="New File"/>
+                    Click="NewFileButtonClick">
+                <Image Source="Resources\icons\new_file.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Content="Open File" Click="OpenFileClick"/>
+                    Click="OpenFileClick">
+                <Image Source="Resources\icons\open_file.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Content="Save File" Click="SaveFileClick"/>
-            <!--<Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Content="Manage Tabs" Click="TabManageClick"/>-->
+                    Click="SaveFileClick">
+                <Image Source="Resources\icons\save_file.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Content="Clear Tabs" Click="ClearTabsClick"/>
+                    Click="ClearTabsClick">
+                <Image Source="Resources\icons\clear.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Content="Lessons" Click="LessonClick"/>
+                    Click="LessonClick">
+                <Image Source="Resources\icons\lessons.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Content="Fundamentals" Click="ReferencesClick"/>
+                    Click="ReferencesClick">
+                <Image Source="Resources\icons\fundamentals.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Content="Glossary" Click="GlossaryClick"/>
+                    Click="GlossaryClick">
+                <Image Source="Resources\icons\glossary.png"/>
+            </Button>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Content="Help" Click="HelpClick"/>
+                    Click="HelpClick">
+                <Image Source="Resources\icons\help.png"/>
+            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Content="Run" Click="RunClick"/>
+                    Click="RunClick">
+                <Image Source="Resources\icons\run.png"/>
+            </Button>
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -46,17 +64,17 @@
             </TabControl>
         </Grid>
         
-
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
             <RichTextBox HorizontalAlignment="Left" Grid.Column="0"
-                       MinHeight="200" Width="35" 
-                       x:Name="TheLineCounter"
+                       MinHeight="200" Width="50" 
+                       BorderThickness="0"
+                       x:Name="TheLineCounter" FontSize="16"
                        Background="Black" Foreground="White"
                        IsEnabled="False">
             </RichTextBox>
@@ -67,7 +85,7 @@
                          TextBlock.Foreground="LightGray"
                          MinHeight="10" MinWidth="340"
                          AcceptsTab="True" AcceptsReturn="True"
-                         TextChanged="UnsavedChanges"
+                         TextChanged="UnsavedChanges" FontSize="16"
                          IsEnabled="False" VerticalScrollBarVisibility="Auto"
                          ScrollViewer.ScrollChanged="TextField_ScrollChanged"/>
 
@@ -79,17 +97,11 @@
                 <TextBox x:Name="LessonBox" 
                          VerticalAlignment="Stretch"
                          Background="Black" TextWrapping="Wrap"
-                         Foreground="LightGray"
+                         Foreground="LightGray" FontSize="16"
                          AcceptsTab="True" AcceptsReturn="True"
                          IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
             </Expander>
         </Grid>
 
-        <!--<Expander Header="Terminal" Grid.Row="3"
-                  Background="DarkGray" BorderBrush="Black" BorderThickness="2"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                  MinWidth="520" Height="140">
-            <Grid Background="Black"/>
-        </Expander>-->
     </Grid>
 </Window>

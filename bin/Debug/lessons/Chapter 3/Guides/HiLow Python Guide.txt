@@ -1,0 +1,66 @@
+Chapter 3: HiLow
+Python Guide
+
+Prerequisites
+	We'll first need to import the random class:
+		import random
+
+Create an answer between 1-100
+	First we need to create the answer variable:
+		answer = random.randint(1, 100)
+		numGuesses = 1
+	We will also need to keep track of their guesses so here's a good spot to put that
+		
+Prompt the user to guess 1-100
+	This is a simple print, I like to welcome them to the game first:
+		print("Hello and welcome to the High-low number guessing game.")
+		print("Guess a number between 1 and 100:")
+
+Take in their input
+	All we need to do is use input():
+		guess = input()
+	But we can alter the top line to make this more efficient:
+		guess = int(input("Guess a number between 1 and 100:"))
+	Another thing about this line is the int() part, this is called casting and takes whatever is in the parentheses and tries to make it into a whole number, if it's not a whole number it will default to 0.
+
+If they got it correct tell them how many guesses it took
+	Simple if statement:
+		if (guess == answer):
+			print("Congrats, you got it in", numGuesses, "guesses.")
+
+Tell them if it's too high/low
+	In the same if statement as above continue it into an elif:
+		elif (guess < answer):
+			print("Too Low")
+			#this increments and assigns the variable similar to var++ in Java
+			numGuesses += 1
+		elif (guess > answer):
+			print("Too High")
+			numGuesses += 1
+
+Allow them to keep guessing until it's correct
+	This is where we'll have to wrap our code in a while loop, but the tricky part is where to start and end it. A good place is right after the creation of the answer and number of guesses:
+		numGuesses = 1
+		win = False
+		while (win == False):
+			guess = int(input("Guess a number between 1 and 100:"))
+			...
+	Next we'll need to make sure the loop ends, otherwise they'll be stuck playing:
+		if (guess == answer):
+			print("Congrats, you got it in", numGuesses, "guesses.")
+			win = True
+
+After that ask if they'd like to keep playing
+	This is another loop that will be wrapped around our code, 
+	but first we need to ask them if they want to keep playing:
+		playAgain = input("Would you like to play again?(y/n):")
+		if (playAgain == "n"):
+			playing = False
+			print("Goodbye!")
+	Now we need to put in the while loop, first create the boolean "playing"
+		playing = True
+		while (playing):
+			answer = random.randint(1, 100)
+			...
+
+And that should do it, if you'd like to see the complete code look for HiLow.py in the examples folder.

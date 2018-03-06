@@ -1,0 +1,44 @@
+Chapter 4: Methods and Classes
+HiLow v2 C# Guide:
+
+Unlike Python and Ruby in C# it doesn't really matter where you put the methods, as long as they aren't in the main method and are inside the class.
+Let's first take everything in the first while loop and put it into a new method called playLoop():
+	public static bool playLoop(Random rand)
+	{
+		bool playing = true;
+		...
+		return playing;
+	}
+It will need the random instance we made above. The contents are pretty much the entire program except for the prompt.
+Now let's call playLoop() in the while loop:
+	while (playing)
+	{
+		playing = playLoop(rand);
+	}
+This will insure that the loop repeats until the user quits the game.
+
+Next we refactor the guessing loop with guessLoop(). From playLoop() take everything in the do/while loop and put it into the new method:
+	public static bool guessLoop(int answer)
+	{
+		bool win = false;
+		...
+		return win;
+	}
+First we need the answer variable as we make it before they start guessing and shouldn't remake it everytime they guess. Next we check to see if they got the answer right, if so win = true, else if too high/low Console.WriteLine("too high/low"). Lastly we return the boolean win.
+Now in the do/while loop inside the playLoop() we need to call guessLoop():
+	do
+	{
+		win = guessLoop(answer);
+		if (win)
+		{
+			Console.WriteLine($"Congrats you got it in {numGuesses} guesses.");
+		}
+		else
+		{
+			numGuesses++;
+		}
+	} while (!win);
+This will allow them to keep guessing while also incrementing the number of guesses.
+
+
+Once you have finished run it and see if it still works. Just like the previous project my program will be in the "Examples" folder.

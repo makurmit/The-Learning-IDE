@@ -1,0 +1,405 @@
+Array
+	C#
+		int[] nums = new int[5];
+		nums[0] = 1;
+	Java
+		int[] nums = new int[5];
+		nums[0] = 1;
+	Python
+		nums = []
+		nums[0] = 1
+	Ruby
+		nums = []
+		nums[0] = 1
+-------------------------------------------------
+ArrayList
+	C#
+		using Systems.Collections;
+		ArrayList nums = new ArrayList();
+		nums.Add(10);
+		nums[0] = 20;
+		nums.RemoveAt(0);
+		nums.Count;
+	Java
+		import java.util.ArrayList;
+		ArrayList<Integer> nums = new ArrayList();
+		nums.get(0);
+		nums.add(10);
+		nums.set(0, 20);
+		nums.remove(0);
+		nums.size();
+	Python
+		nums = [10, 20, 30]
+		nums[0]
+		nums.append(40)
+		nums[0] = 20
+		del nums[0]
+	Ruby
+		nums = [10, 20, 30]
+		nums[0]
+		nums.push(40)
+		nums[0] = 20
+		nums.delete_at(0)
+-------------------------------------------------
+Comments
+	C#
+		//single line
+		/*
+		* multi-line
+		*/
+	Java
+		//single line
+		/*
+		* multi-line
+		*/
+	Python
+		#single line
+		"""
+		multi-line
+		"""
+	Ruby
+		#single line
+		=begin
+		multi-line
+		=end
+-------------------------------------------------
+Conditional Statements
+	C#
+		x < y //less than
+		x > y //greater than
+		x <= y //less than or equal to
+		x >= y //greater than or equal to
+		x == y //equal to
+		x != y //not equal to
+		x || y //or
+		x && y //and
+		if (conditional)
+		{
+			...
+		}
+		else if (conditional)
+		{
+			...
+		}
+		else
+		{
+			...
+		}
+	Java
+		x < y //less than
+		x > y //greater than
+		x <= y //less than or equal to
+		x >= y //greater than or equal to
+		x == y //equal to
+		x != y //not equal to
+		x || y //or
+		x && y //and
+		if (conditional)
+		{
+			...
+		}
+		else if (conditional)
+		{
+			...
+		}
+		else
+		{
+			...
+		}
+	Python
+		x < y //less than
+		x > y //greater than
+		x <= y //less than or equal to
+		x >= y //greater than or equal to
+		x == y //equal to
+		x != y //not equal to
+		x or y //or
+		x and y //and
+		if (conditional):
+			...
+		elif (conditional):
+			...
+		else:
+			...
+	Ruby
+		x < y //less than
+		x > y //greater than
+		x <= y //less than or equal to
+		x >= y //greater than or equal to
+		x == y //equal to
+		x != y //not equal to
+		x or y //or
+		x and y //and
+		if (conditional)
+			...
+		elsif (conditional)
+			...
+		else
+			...
+		end
+-------------------------------------------------
+Do/While
+	C#
+		do
+		{
+			...
+		}while (conditional);
+	Java
+		do
+		{
+			...
+		}while (conditional);
+	Ruby
+		loop do
+			...
+			break if (conditional)
+		end		
+-------------------------------------------------
+Enum
+	C#
+		public enum Name
+		{
+			value,
+			otherValue,
+			lastValue;
+		}
+		Name n = Name.value;
+	Java
+		public enum Name
+		{
+			value,
+			otherValue,
+			lastValue;
+		}
+		Name n = Name.value;
+	Python
+		from enum import Enum
+		Name = Enum("Names", "value otherValue lastValue")
+		Name.value
+	Ruby
+		module Name
+			value = "a"
+			otherValue = "b"
+			lastValue = "c"
+		end
+		Name::value
+-------------------------------------------------
+For
+	C#
+		for (int i = 0; i < 10; i++) 
+		{
+			...
+		}
+	Java
+		for (int i = 0; i < 10; i++) 
+		{
+			...
+		}
+	Python
+		for i in range(0, 10):
+			...
+	Ruby
+		for i in 0..10 do
+			...
+		end		
+-------------------------------------------------
+Method
+	C#
+		public void foo(string var)
+		{
+			...
+		}
+		private int bar()
+		{
+			...
+			return var;
+		}
+	Java
+		public void foo(String var)
+		{
+			...
+		}
+		private int bar()
+		{
+			...
+			return var;
+		}
+	Python
+		def foo(var):
+			...
+		def bar():
+			...
+			return var
+	Ruby
+		def foo(var)
+			...
+		end
+		def bar()
+			...
+			return var
+		end
+-------------------------------------------------
+Modulus
+	a % b
+	4 % 2 //returns 0
+	5 % 2 //returns 1
+-------------------------------------------------
+Primitive Types
+	C#
+		bool b = true; //or false
+		byte b = 42; //min 0 max 255
+		sbyte b = 42; //min -128 max 127
+		char c = 'X';
+		decimal d = 42.42m; //range 28-29 significant digits
+		double d = 42.42; //range 15-16 significant digits
+		float f = 42.42f; //range 7 digits
+		int i = 42; //min -2,147,483,648 max 2,147,483,647
+		uint i = 42; //min 0 max 4,294,967,295
+		long l = 42; //min -9,223,372,036,854,775,808 max 9,223,372,036,854,775,807
+		ulong l = 42; //min 0 max 18,446,744,073,709,551,615
+		short s = 42; //min -32,768 max 32,767
+		ushort s = 42; //min 0 max 65,535
+		string s = "words";
+	Java
+		byte b = 42; //min 0 max 255
+		short s = 42; //min -32,768 max 32,767
+		int i = 42; //min -2,147,483,648 max 2,147,483,647
+		long l = 42L; //min -9,223,372,036,854,775,808 max 9,223,372,036,854,775,807
+		float f = 42.42f; //range 7 digits
+		double d = 42.42d; //range 15-16 significant digits
+		boolean b = true; //or false
+		char c = 'X';
+		String s = "words";
+-------------------------------------------------
+Print
+	C#
+		Console.WriteLine("Hello World!");//on a new line
+		Console.Write("Hello World!");
+	Java
+		System.out.println("Hello World!");
+		System.out.print("Hello World!");
+	JavaScript
+		Console.log("Hello World");//logs in the browser console
+	Python
+		print("Hello World!")
+		print("Hello World!", end="")//doesn't create a new line
+	Ruby
+		puts "Hello World!"//on a new line
+		put "Hello World!"
+-------------------------------------------------
+Random
+	C#
+		Random rand = new Random();
+		int num = rand.Next(0, 50);
+	Java
+		//at the top of the file
+		import java.util.Random;
+		
+		Random rand = new Random();
+		int num = rand.nextInt(50);
+		int num = rand.nextInt(50) + 1;//min of 1 instead of 0
+		double digit = rand.nextDouble();
+	Python
+		#At the top of the file
+		import random
+		
+		num = random.randint(0,50)
+	Ruby
+		num = rand(0..50)
+-------------------------------------------------
+Switch Statements
+	C#
+		switch (variable)
+		{
+			case value:
+				break;
+			case value:
+			case value:
+				break;
+			default:
+				break;
+		}
+	Java
+		switch (variable)
+		{
+			case value:
+				break;
+			case value:
+			case value:
+				break;
+			default:
+				break;
+		}
+	Ruby
+		case variable
+		when value
+			...
+		else
+			...
+		end
+-------------------------------------------------
+Try Catch
+	C#
+		try
+		{
+			...
+		} 
+		catch (exception e)
+		{
+			...
+		}
+	Java
+		try
+		{
+			...
+		} 
+		catch (exception e)
+		{
+			...
+		}
+	Python
+		try:
+			...
+		except:
+			...
+	Ruby
+		begin
+				...
+			rescue
+				...
+		end
+-------------------------------------------------
+User Input
+	C#
+		String var = Console.ReadLine();
+	Java
+		//at the top of the file
+		import java.util.Scanner;
+	
+		Scanner scan = new Scanner(System.in);
+		String var = scan.next();
+		scan.close();
+	Python
+		var = input("Prompt")
+	Ruby
+		var = gets.chomp
+-------------------------------------------------
+While
+	C#
+		while (conditional)
+		{
+			...
+		}
+	Java
+		while (conditional)
+		{
+			...
+		}
+	Python
+		while (conditional):
+			...
+	Ruby
+		while (conditional) do
+			...
+		end
+-------------------------------------------------

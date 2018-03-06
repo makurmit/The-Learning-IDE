@@ -1,0 +1,20 @@
+<html>
+    <body>
+		<p>I'm thinking of a number between 1 and 100.</p>
+		
+		<form>
+			<input type="text" name="inputBox" value="">
+			<input type="button" value="Submit" onClick="SendData(this.form)">
+		</form>
+		
+		<p id="prompt"/>
+		
+		<script src="GuessingGame.js">
+			
+			do {
+				SendData(this.form);
+			}while (numGuessed != answer);
+			
+		</script>
+	</body>
+</html>

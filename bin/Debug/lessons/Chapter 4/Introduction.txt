@@ -1,0 +1,4 @@
+Chapter 4: Methods
+Introduction:
+
+This chapter will cover methods. We will first discuss what methods are, what they need, and how they can be created. Once we cover methods we will do a mini-project of reworking our previous lab: HiLow guessing game.

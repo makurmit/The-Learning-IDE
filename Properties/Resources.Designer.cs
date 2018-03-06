@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace The_Learning_IDE.Properties
-{
-
-
+namespace The_Learning_IDE.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,119 @@ namespace The_Learning_IDE.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("The_Learning_IDE.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Array
+        ///	C#
+        ///		int[] nums = new int[5];
+        ///		nums[0] = 1;
+        ///	Java
+        ///		int[] nums = new int[5];
+        ///		nums[0] = 1;
+        ///	Python
+        ///		nums = []
+        ///		nums[0] = 1
+        ///	Ruby
+        ///		nums = []
+        ///		nums[0] = 1
+        ///-------------------------------------------------
+        ///ArrayList
+        ///	C#
+        ///		using Systems.Collections;
+        ///		ArrayList nums = new ArrayList();
+        ///		nums.Add(10);
+        ///		nums[0] = 20;
+        ///		nums.RemoveAt(0);
+        ///		nums.Count;
+        ///	Java
+        ///		import java.util.ArrayList;
+        ///		ArrayList&lt;Integer&gt; nums = new ArrayList();
+        ///		nums.get(0);
+        ///		nums.add(10);
+        ///		nums.set(0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Glossary {
+            get {
+                return ResourceManager.GetString("Glossary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help:
+        ///
+        ///Installation guide:
+        ///  C#
+        ///   Install Mono from http://www.mono-project.com/download/
+        ///   Add mono to the path:
+        ///	Add bin file location (default is in program files)
+        ///   To verify run cmd and type &quot;mono -V&quot;
+        ///  
+        ///  Java
+        ///   Install the latest jdk from http://www.oracle.com/technetwork/java/javase/downloads/index.html
+        ///   Add java to the path: 
+        ///    Add bin file location (default is program files)
+        ///   To verify run cmd and type &quot;java -version&quot;
+        ///  
+        ///  Python
+        ///   Install Python from https://www.python. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello and welcome to my IDE.
+        ///
+        ///To start press Lessons and select Chapter 1 Introduction.
+        ///
+        ///If you do not have the compilers for C#, Java, Python, and/or Ruby click on the help button.
+        ///.
+        /// </summary>
+        internal static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

@@ -1,0 +1,104 @@
+Chapter 5: Advanced Concepts
+Lesson 4: Try Catch
+
+Try Catch statements prevent programs from crashing and allow us to handle exceptions. Even though we should try to write programs with no errors we sometimes will have to accept them, for instances user input. If you ask for an int and the user gives you "too bad" it will crash, however if that input statement is inside a try catch it will stop the crash. The syntax is fairly simple just wrap the code you want inside of a try:
+	try
+	{
+		//code
+	} 
+	//and add a catch statement after it
+	catch (exception e)
+	{
+		//code
+	}
+"exception" is the exception you're expecting. For example you could put "InputMismatchException" and change "e" to whatever you want, it's simply the variable name for the exception. Now let's put some code in there:
+	//first you need to import the exception at the top of the file
+	import java.util.InputMismatchException;
+	...
+	//this will create num outside the try catch so we can access it later
+	int num = 0;
+	System.out.println("Please enter a whole number:");
+	try
+	{
+		num = scan.nextInt();
+	}
+	catch (InputMismatchException e)
+	{
+		System.out.println("Please give me an int.");
+	}
+This will catch if the user inputs anything other than an int. If the exception happens the code will continue to run but num will be the original value of 0. While this is nice and useful in some cases there is a better practice.
+
+Instead of using "scan.nextInt()" we should use "scan.next()" and change the string into an int. This process is called parsing: anytime you change a string into another type. Let's change "scan.nextInt()" to "scan.next()":
+	//just like before we make variable before the try, this time it's a String so it's String num (SNum for short)
+	String SNum = "";
+	int num = 0;
+	System.out.println("Please enter a whole number:");
+	try
+	{
+		SNum = scan.next();
+		//here's the difference, we have to parse SNum into num
+		num = Integer.parseInt(SNum);
+	}
+	//this exception is different, this time we're checking to see if it parsed correctly
+	catch (NumberFormatException e)
+	{
+		System.out.println("That's not an int.");
+	}
+	System.out.println("Your number is " + num);
+If all works out the catch won't activate and num will change to whatever the user said. If the catch activates num will stay the same, 0.
+
+Another example, the infamous "ArrayIndexOutOfBoundsException". When working with arrays and lists the "ArrayIndexOutOfBoundsException" happens when an index is chosen that doesn't exist.
+	int[] arr = new int[10];
+	//arr.length returns the length of the array, this is very useful shorthand for finding the length of arrays
+	for (int i = 0; i < arr.length; i++)
+	{
+		arr[i] = i;
+	}
+	try
+	{
+		System.out.println(arr[20]);
+	}
+	catch (ArrayIndexOutOfBoundsException e)
+	{
+		System.out.println("ERROR Index out of bounds: " + e);
+	}
+While this won't do much it will prevent the program from crashing.
+
+Lastly if you want to catch more than one exception you simply add another catch:
+	try
+	{
+		...
+	}
+	catch (...)
+	{
+		...
+	}
+	catch (...)
+	{
+		...
+	}
+
+Okay, now let's talk about syntax differences. 
+Thankfully C# is pretty similar, only differences are the exception names: "IndexOutOfRangeException", and "FormatException".
+
+Python:
+	try:
+		...
+	except:
+		...
+this will catch any and all errors. If you want to catch a specific error you'll need to state which one after the except:
+	try:
+		...
+	except IndexError:
+		...
+	#for another catch
+	except:
+		...
+
+Ruby:
+	begin
+		...
+	#this is the catch
+	rescue
+		...
+	end

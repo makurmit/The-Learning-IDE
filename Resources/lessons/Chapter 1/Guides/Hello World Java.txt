@@ -1,0 +1,17 @@
+Chapter 1: Hello World Java
+
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World!");
+	}
+}
+
+This may look intimidating at first but it becomes more simple later on. The file name also matters in this case, you must name it "HelloWorld".
+
+
+The first line is the class declaration, the only thing to note about this is that it's public. Next we have our main method. Every Java file requires a main method: this is where the program starts. Lastly we have System.out.println(); this line takes whatever is in the parentheses and prints it out to the console.
+
+
+Once you have completed the program press the "run" button.

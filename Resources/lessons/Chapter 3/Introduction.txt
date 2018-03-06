@@ -1,0 +1,15 @@
+Chapter 3: HiLow
+Introduction
+
+During this chapter we will be creating a High Low number guessing game. This game will prompt the user to guess a number between 1 and 100, if they guess too low or too high the program will tell them, if they get it right the program will tell them how many guesses it took.
+
+To summarize:
+	Create an answer between 1-100
+	Prompt the user to guess 1-100
+	Take in their input
+	If they got it correct tell them how many guesses it took
+	Tell them if it's too high/low
+	Allow them to keep guessing until it's correct
+	After that ask if they'd like to keep playing
+
+I suggest giving this project a stab on your own, if you get stuck you can follow one of the guides I've made.

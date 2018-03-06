@@ -13,6 +13,21 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -123,6 +138,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\The Learning IDE.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -133,6 +149,135 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help.txt" />
+    <None Include="Resources\Glossary.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 1\Guides\Hello World Csharp.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 1\Guides\Hello World Java.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 1\Guides\Hello World JavaScript.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 1\Guides\Hello World Python.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 1\Guides\Hello World Ruby.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 1\Introduction.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\lessons\Chapter 2\Cheat sheet.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 1.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 2.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 3.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 4.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 5.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 2\Lesson 6.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Guides\HiLow Csharp Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Guides\HiLow Java Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Guides\HiLow JavaScript Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Guides\HiLow Python Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Guides\HiLow Ruby Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 3\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Cheat Sheet.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Guides\HiLow v2 Csharp Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Guides\HiLow v2 Java Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Guides\HiLow v2 Python Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Guides\HiLow v2 Ruby Guide.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Lesson 1.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 4\Lesson 2.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Cheat Sheet.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Lesson 1.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Lesson 2.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Lesson 3.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 5\Lesson 4.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 6\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 7\Introduction.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 7\Lesson 1.txt" />
+    <Resource Include="bin\Debug\lessons\Chapter 7\Lesson 2.txt" />
+    <Resource Include="bin\Debug\lessons\Fundamentals\Csharp Fundamentals.txt" />
+    <Resource Include="bin\Debug\lessons\Fundamentals\Java Fundamentals.txt" />
+    <Resource Include="bin\Debug\lessons\Fundamentals\JavaScript Fundamentals.txt" />
+    <Resource Include="bin\Debug\lessons\Fundamentals\Python Fundamentals.txt" />
+    <Resource Include="bin\Debug\lessons\Fundamentals\Ruby Fundamentals.txt" />
+    <Resource Include="Resources\icons\fundamentals.png" />
+    <Resource Include="Resources\icons\glossary.png" />
+    <Resource Include="Resources\icons\help.png" />
+    <Resource Include="Resources\icons\lessons.png" />
+    <Resource Include="Resources\icons\new_file.png" />
+    <Resource Include="Resources\icons\open_file.png" />
+    <Resource Include="Resources\icons\run.png" />
+    <Resource Include="Resources\icons\save_file.png" />
+    <Resource Include="Resources\icons\clear.png" />
+    <Content Include="Resources\Welcome.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Guides\Hello World Csharp.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Guides\Hello World Java.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Guides\Hello World JavaScript.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Guides\Hello World Python.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Guides\Hello World Ruby.txt" />
+    <Resource Include="Resources\lessons\Chapter 1\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Cheat sheet.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 1.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 2.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 3.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 4.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 5.txt" />
+    <Resource Include="Resources\lessons\Chapter 2\Lesson 6.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Guides\HiLow Csharp Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Guides\HiLow Java Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Guides\HiLow JavaScript Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Guides\HiLow Python Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Guides\HiLow Ruby Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 3\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Cheat Sheet.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Guides\HiLow v2 Csharp Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Guides\HiLow v2 Java Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Guides\HiLow v2 Python Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Guides\HiLow v2 Ruby Guide.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Lesson 1.txt" />
+    <Resource Include="Resources\lessons\Chapter 4\Lesson 2.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Cheat Sheet.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Lesson 1.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Lesson 2.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Lesson 3.txt" />
+    <Resource Include="Resources\lessons\Chapter 5\Lesson 4.txt" />
+    <Resource Include="Resources\lessons\Chapter 6\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 7\Introduction.txt" />
+    <Resource Include="Resources\lessons\Chapter 7\Lesson 1.txt" />
+    <Resource Include="Resources\lessons\Chapter 7\Lesson 2.txt" />
+    <Resource Include="Resources\lessons\Fundamentals\Csharp Fundamentals.txt" />
+    <Resource Include="Resources\lessons\Fundamentals\Java Fundamentals.txt" />
+    <Resource Include="Resources\lessons\Fundamentals\JavaScript Fundamentals.txt" />
+    <Resource Include="Resources\lessons\Fundamentals\Python Fundamentals.txt" />
+    <Resource Include="Resources\lessons\Fundamentals\Ruby Fundamentals.txt" />
+    <Content Include="bin\Debug\The Learning IDE.exe" />
+    <Content Include="bin\Debug\The Learning IDE.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

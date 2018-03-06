@@ -1,0 +1,18 @@
+JavaScript Fundamentals
+
+Introduction: 
+
+Advantages: 
+
+Disadvantages: 
+
+Supported Platforms: 
+
+Versions: 
+
+Popular Frameworks: 
+
+Code Example: 
+
+
+References:

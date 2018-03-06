@@ -1,0 +1,85 @@
+Chapter 3: HiLow
+JavaScript Guide
+
+First the HTML:
+	<html>
+		<body>
+			
+		</body>
+	</html>
+This creates the basic webpage with the body. 
+
+Next we add some text to prompt the user:
+	<p>I'm thinking of a number between 1 and 100.</p>
+
+Now let's create the form to get input:
+	<form>
+		<input type="text" name="inputBox" value="">
+		<input type="button" value="Submit" onClick="SendData(this.form)">
+	</form>
+The textbox will allow for a space to put input and the button will send the input into the JavaScript file. 
+
+Now we have to add a section to prompt the user whether their guess was too high or too low.
+	<p id=""/>
+This will be used later in the JavaScript file.
+
+Lastly we need to specify our JavaScript file:
+	<script src="GuessingGame.js">
+		
+	</script>
+Inside these tags we can dictate when the file will be ran:
+	<script src="GuessingGame.js">
+		do {
+			SendData(this.form);
+		}while (numGuessed != answer);
+	</script>
+This do/while will send the form data to the JavaScript file until they get the answer right.
+
+Okay, now the front end is done, next we work on the JavaScript file.
+
+First create the random answer:
+	var answer = Math.round(Math.random() * 99) + 1;
+
+Next create the variables to keep track of the number of guesses and their guess:
+	var guesses = 1;
+	var guess = 0;
+
+Now create the function SendData() that takes in the form data:
+	function SendData(form){
+	
+	}
+
+Inside of that method we need to find their guess:
+	guess = form.inputBox.value;
+this takes the value inside of the form's inputBox and assigns its value to "guess".
+
+Okay, now check to see if they got it right, if they did change the prompt:
+	if (guess == answer){
+		document.getElementById('prompt').innerHTML = "CORRECT! It took only " + guesses + " guesses.";
+	}
+ElementById() will find the HTML element and then we can change it with the "innerHTML" property.
+	
+Let's add the other cases, if it is out of range, improper input, too high, or too low, also increment the number of guesses:
+	else if (guess < 0 || guess > 101){
+		document.getElementById('prompt').innerHTML = "Out of range, guess between 1 and 100.";
+		guesses++;
+	}
+	
+	else if(guess > answer){
+		document.getElementById('prompt').innerHTML = "Too high, try again.";
+		guesses++;
+	}
+	
+	else if(guess < answer){
+		document.getElementById('prompt').innerHTML = "Too low, try again.";
+		guesses++;
+	}
+	
+	else if (guess != answer){
+		document.getElementById('prompt').innerHTML = "Try again, numbers  between 1 and 100.";
+		guesses++;
+	}
+Since JavaScript is weakly typed it isn't likely to break if you compare strings to numbers, that's what "guess != answer" does, it makes sure that it isn't a number.
+
+
+That should be about it, open the "index.html" file in a browser and try it out. If you'd like to see my code check in the JavaScript folder under the examples folder. 

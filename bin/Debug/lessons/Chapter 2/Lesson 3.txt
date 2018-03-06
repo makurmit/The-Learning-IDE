@@ -1,0 +1,172 @@
+Chapter 2: The Basics
+Lesson 3: Conditional Statements
+
+Conditional statements are ways to branch code. They interpret boolean statements like "x < 2" to determine whether or not to run a section of code. There are three types of conditional statements, if, else if, and else.
+
+If statements are required for conditional statements. They are formatted like:
+	if (boolean)
+	{
+		code;
+	}
+boolean being either a boolean variable or a statement like: "x < 2". The next two statements add on to the if statement, else if determines if there is another boolean statement that would run a different set of code. For example:
+	if (x < 2)
+	{
+		System.out.println("x is less than 2");
+	}
+	else if (x == 10)
+	{
+		System.out.println("x is equal to 10");
+	}
+The else if section will only run if x is not less than 2 and is equal to 10. Another thing about this example is if you want to check if a variable is equal to a value use "==" otherwise it will an be assigning a value to the variable. An else statement determines that in any other situation run this section of code. For example:
+	if (x <= 2)
+	{
+		System.out.println("x is less than or equal to 2");
+	}
+	else
+	{
+		System.out.println("x is not less than 2")
+	}
+Notice how there aren't any parentheses after "else", it's because this section will run if the "if" doesn't run. Also keep in mind you don't need an else if statement to use an else.
+
+A slight addition to the section above, in Java Strings cannot use the "==" statement. Instead Java uses "name.equals()" if name where a String. For example:
+	String = "Jim";
+	if (name.Equals("Jim"))
+	{
+		System.out.println("You're name is Jim!");
+	}
+Java can also use "name.equalsIgnoreCase()" if you don't want to worry about casing.
+
+Next is nested conditional statements, this isn't as complicated as it may seem. Nested ifs help determine spefic sequences or branches of code, but they are simply ifs inside of ifs. Example:
+	int age = 18;
+	if (age > 18)
+	{
+		System.out.println("What movie would you like to see?");
+		String movie = "Pulp Fiction";
+		if (movie.Equals("Pulp Fiction"))
+		{
+			System.out.println("Great choice, what time would you like to see it?");
+			int time = 10;
+			if (time == 2)
+			{
+				System.out.println("You're theater is on the left");
+			}
+			else
+			{
+				System.out.println("See you later!");
+			}
+		}
+	}
+Careful as it can get out of hand pretty quick if you go too far down the rabbit hole. 
+
+In a lot of cases you will just need to test a boolean variable to see if it is true or false, that is simply done by putting it inside of the parentheses:
+	boolean valid = false;
+	if (valid)
+	{
+		System.out.println("Valid input");
+	}
+If you wanted to check if the boolean was false simply put a bang (!) before it:
+	boolean valid = false;
+	if (!valid)
+	{
+		System.out.println("Invalid input");
+	}
+Same thing with values, if you want to check if something doesn't equal something use "!=" for example:
+	int num = 5;
+	if (num != 10)
+	{
+		System.out.println("That's not 10!");
+	}
+Another thing to note about if/else statements is the "or" and "and". If you need to check multiple booleans you can use "or" statements "||" and "and" statements "&&". For example:
+	String FavColor = "red";
+	int age = 25;
+	if (age < 30 && FavColor.Equals("red"))
+	{
+		System.out.println("You're young and cool");
+	}
+	else (FavColor == "green" || FavColor == "blue" || FavColor == "purple")
+	{
+		System.out.println("You might not be cool but you like a cool color");
+	}
+These statements can be combined to make some complex statements:
+	int age = 10;
+	boolean WithParent = true;
+	if (age > 13 || (age < 13 && WithParent))
+	{
+		System.out.println("You can see this movie");
+	}
+Last thing (I swear) this syntax will work for Java, JavaScript, and C# but Python and Ruby are a bit different. Python and Ruby don't use curly bracket {} like Java and C#, instead Python uses tabs and Ruby uses ends, Python:
+	if (boolean):
+		code
+	elif (boolean):
+		code
+	else:
+		code
+Ruby:
+	if (boolean)
+		code
+	elsif (boolean)
+		code
+	else
+		code
+	end
+As you can see they also shorten "else if" to elif and elsif (I know it can get confusing). Another syntax difference is in the and/or operators, Python and Ruby use actual English "and" and "or":
+	valid = true
+	num = 5
+	if (valid and num > 2):
+		print("valid and num is greater greater than 2")
+
+	
+	
+
+Now moving on to the other type of conditional statement, the switch case. For all intents and purposes the switch case is just a fancier if/else statement, you determine whether a variable is a certain value.
+	int num = 10;
+	switch (num)
+	{
+		case 1:
+			System.out.println("The num is 1");
+			break;
+		case 5:
+			System.out.println("The num is 5");
+			break;
+	}
+This code will determine if num is equal to 1 or 5, now this may seem useless but if there are enough cases it becomes much cleaner to use a switch instead of multiple if/else if statements. One thing necessary to switch case statements are the "break;", every case needs a break otherwise it will keep running the other conditionals. This isn't a bad thing, in some circumstances you may want to run multiple cases, but it's a bit tricky. I won't delve into it but I recommend playing around with switch cases to see what they can do. Another useful tool in switch case is the default case, if something doesn't equal any of the cases the default code will run:
+	String name = "Mike";
+	switch (name)
+	{
+		case "Mike":
+			System.out.println("Your name is Mike");
+			break;
+		default:
+			System.out.println("I don't know your name");
+			break;
+	}
+This is very useful for testing and debugging as you might want to find what is falling through your code.
+
+Now onto the differences. C# and JavaScript are the same as the above Java, Python doesn't have a switch case, and Ruby's syntax is as follows:
+	num = 10
+	case num
+	when 1
+		puts "num is equal to 1"
+	when 2..10
+		puts "num is between 2 and 10"
+	else
+		puts "num is something else"
+	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Wow, that was a lot more than I expected, hopefully these get shorter later on...

@@ -1,0 +1,24 @@
+Java Fundamentals
+
+Introduction: 
+	Java is a compiled, statically typed, object orientated language. Java compiles the source code into machine code so it will have faster boot times. This does take a bit longer than a running a script, however larger programs benefit from compilation. Statically typed languages require the user to specify the variable type before creating it. Object Orientated languages focus on making objects which interact with each other and hold more information.
+
+Advantages: 
+	Java is one of the most used programming language, boasting it being used on 3 billion devices. Like other statically typed compiled languages it is built for large scale projects. It's fairly simple to expand programs in Java as opposed to scripting languages. Lastly Java is natively supported and widely used in Android. If you plan to develop for Android you'll need to learn Java.
+
+Disadvantages: 
+	There are a few disadvantages, first being verbosity. Java needs type declarations and modifiers, small things at first but they tend to pile up after a few hours of coding. Statically typed languages tend to take a bit longer to code than its counterpart dynamically typed. Lastly is legacy code, when Java updates they keep a lot of the old deprecated syntax most languages trash.
+
+Supported Platforms: Android, Windows, and MacOS
+
+Versions: version 1 was released in 1996, the latest version 9 in 2018
+
+Popular Frameworks: Spring, Grails, and Vaadin
+
+Code Example: "System.out.println("Hello World!");"
+
+
+References:
+	https://docs.oracle.com/javase/7/docs/api/
+	https://simple.wikipedia.org/wiki/Java_(programming_language)
+	https://en.wikipedia.org/wiki/Java_(programming_language)

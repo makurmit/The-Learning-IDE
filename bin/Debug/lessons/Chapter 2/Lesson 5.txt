@@ -1,0 +1,45 @@
+Chapter 2: The Basics
+Lesson 5: Random
+
+
+Random() is a method that determines a random number. A method is a section of code that can be called from other code. Methods can return a value, in this case Random() will return a number. Sometimes you need to specify some variables before using a method, these are called parameters or arguments and are put inside the parentheses when calling that method. Random() is in almost every programming language.
+
+In Java Random() looks like this:
+	//this needs to be put at the top of the file, it tells Java we will need Random() later
+	import java.util.Random;
+
+	//this creates a new instance of Random() that we can use, you don't have to name it 'rand'
+	Random rand = new Random();
+	int num = rand.nextInt(10);
+The 10 inside the parentheses dictate that we want a number between 0 and 9 (exclusive).
+But what if you want it to be 5 and 10? Same thing, just add the minimum value after the generation:
+	int num = rand.nextInt(6) + 5;
+It creates an int between 0 and 5 and then adds 5, making the range 5 to 10.
+
+If you want a double simply use this:
+	Random rand = new Random();
+	double digit = rand.nextDouble();
+This will give us a decimal between 0 and 1.
+
+
+In C# Random() looks like this:
+	//same as Java but you don't have to import it
+	Random rand = new Random();
+	int num = rand.Next(5, 10);
+This Random() takes 2 parameters, a min value and a max value. So num will be a random int between 5 and 10.
+
+
+JavaScript:
+	var num = Math.round(Math.random() * 9) + 1;
+Math.random creates a number between 0 and 1, multiply that by 9 and round it will create a random number between 0 and 9, adding one changes the range to 1-10.
+
+
+In Python:
+	import random
+	num = random.randint(5,10)
+In this case we don't need to make a new instance of random, but we do need to give it two arguments: a min value and a max value. Also this is inclusive, so in this example num would be a random number between 5 and 10.
+
+
+In Ruby:
+	num = rand(5..10)
+That's it, this will return a random number between 5 and 10 (inclusive). If you only specify a max value it will be exclusive.
