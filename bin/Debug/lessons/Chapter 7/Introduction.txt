@@ -1,6 +1,0 @@
-Chapter 7: Object Orientation
-Introduction
-
-Object Orientated Programming is the practice of creating objects that interact with each other. Classes make objects and define their structure, like a blueprint. Once created these objects have much more than just values.
-
-In this chapter we will cover: how to make classes and inheritance.

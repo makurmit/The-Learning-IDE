@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d"
         Background="Black"
-        Title="Glossary" Height="500" Width="600">
+        Title="Glossary" Height="500" Width="700">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             Margin="10, 5, 10, 0">
             <TextBox 
                 x:Name="SearchBox" Grid.Row="0"
-                Padding="2" MinWidth="420"
+                Padding="2" MinWidth="520"
                 Background="Black" Foreground="White"
                 />
 
@@ -42,6 +42,6 @@
         <TextBox 
             x:Name="TheTextBox" Grid.Row="1" IsReadOnly="True"
             Margin="10" VerticalScrollBarVisibility="Auto"
-            Background="Black" Foreground="White"/>
+            Background="Black" Foreground="White" FontSize="16"/>
     </Grid>
 </Window>

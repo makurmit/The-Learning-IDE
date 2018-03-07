@@ -15,43 +15,42 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         
-        
         <!--Icons from Flaticon-->
         <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="NewFileButtonClick">
+                    Click="NewFileButtonClick" ToolTip="Create a new file">
                 <Image Source="Resources\icons\new_file.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="OpenFileClick">
+                    Click="OpenFileClick" ToolTip="Open a file">
                 <Image Source="Resources\icons\open_file.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="SaveFileClick">
+                    Click="SaveFileClick" ToolTip="Save current file">
                 <Image Source="Resources\icons\save_file.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Click="ClearTabsClick">
+                    Click="ClearTabsClick" ToolTip="Clear all tabs">
                 <Image Source="Resources\icons\clear.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Click="LessonClick">
+                    Click="LessonClick" ToolTip="Open lesson">
                 <Image Source="Resources\icons\lessons.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="ReferencesClick">
+                    Click="ReferencesClick" ToolTip="Open fundamentals">
                 <Image Source="Resources\icons\fundamentals.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="GlossaryClick">
+                    Click="GlossaryClick" ToolTip="Open glossary">
                 <Image Source="Resources\icons\glossary.png"/>
             </Button>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
-                    Click="HelpClick">
+                    Click="HelpClick" ToolTip="Help">
                 <Image Source="Resources\icons\help.png"/>
             </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
-                    Click="RunClick">
+                    Click="RunClick" ToolTip="Run">
                 <Image Source="Resources\icons\run.png"/>
             </Button>
         </StackPanel>
@@ -80,16 +79,29 @@
             </RichTextBox>
 
             <RichTextBox x:Name="TextField" Grid.Column="1"
-                         HorizontalAlignment="Stretch"
-                         Background="Black" BorderBrush="Black" BorderThickness="2"
-                         TextBlock.Foreground="LightGray"
-                         MinHeight="10" MinWidth="340"
+                         HorizontalAlignment="Left"
+                         Background="Black" TextBlock.Foreground="LightGray"
+                         BorderBrush="Black" BorderThickness="2"
+                         MinHeight="10" MinWidth="600"
+                         IsUndoEnabled="True" UndoLimit="100"
+                         TextBlock.LineHeight="1" 
                          AcceptsTab="True" AcceptsReturn="True"
                          TextChanged="UnsavedChanges" FontSize="16"
-                         IsEnabled="False" VerticalScrollBarVisibility="Auto"
-                         ScrollViewer.ScrollChanged="TextField_ScrollChanged"/>
+                         IsEnabled="False" 
+                         HorizontalScrollBarVisibility="Auto"
+                         VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.ScrollChanged="TextField_ScrollChanged"
+            >
 
-            <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
+                <!--<RichTextBox.Resources>
+                    <Style TargetType="ScrollViewer">
+                        <Setter Property="MinWidth" Value="1000" />
+                    </Style>
+                </RichTextBox.Resources>-->
+
+            </RichTextBox>
+
+                <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
                       Background="Black" BorderBrush="Black" BorderThickness="1"
                       Foreground="White"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"

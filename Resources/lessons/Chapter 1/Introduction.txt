@@ -1,9 +1,0 @@
-Chapter 1: Hello World
-
-This chapter will be your first step into programming. In order to continue click on lessons, Chapter 1, and the language you would like to learn. From there create a new file (exclude spaces in the file name) and follow the instructions in the lesson. Since this is the first lesson the main objective is to introduce you to code, not necessarily understand everything in the program.
-
-
-What language should you choose? To be honest it doesn't really matter what you choose once you start. If you don't like one language you can switch to another, just keep an open mind. But in short: Ruby and Python are easier for beginners as the syntax (word choice) is much simpler. Java and C# are still easy to get into, they just might look a little intimidating. I would recommend trying all of these lessons as they are a good introduction to the languages. If you want more detail check the fundamentals.
-
-
-The main objective of Hello World is to print something out to the console (command line or cmd). This is typically the first thing you code in every language. In some languages this is 5-10 lines where others it is only one line. I'll try to explain each line without too much complexity.

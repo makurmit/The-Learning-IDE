@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:The_Learning_IDE"
         mc:Ignorable="d" Background="Black"
-        Title="fundamentals" Height="500" Width="600">
+        Title="Fundamentals" Height="500" Width="600">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center">
+        <Label Content="Which language would you like to learn about?" 
+               Foreground="White" FontSize="16" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center" Grid.Row="1">
             <Button Content="C#" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
             <Button Content="Java" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
             <Button Content="Python" Padding="5" Margin="0, 0, 20, 0" Click="Button_Click"/>
@@ -20,7 +23,7 @@
 
         <TextBox Background="Black" Foreground="White"
                  IsReadOnly="True" Margin="10" TextWrapping="Wrap"
-                 VerticalScrollBarVisibility="Auto"
-                 x:Name="TheBox" Grid.Row="1"/>
+                 VerticalScrollBarVisibility="Auto" FontSize="16"
+                 x:Name="TheBox" Grid.Row="2"/>
     </Grid>
 </Window>

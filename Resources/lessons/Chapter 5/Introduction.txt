@@ -1,9 +1,0 @@
-Chapter 5: Advanced Concepts
-Introduction
-
-This chapter we will be tackling some advanced concepts. In order to create the next project we will need to use our new found knowledge of methods and plenty of loops. This chapter will cover: array/arraylists, enums (enumerated types), modulus, and try/catch.
-
-Arrays, arraylists, and lists are special types of variables that hold multiple values.
-Enums are custom types, this is helpful if you need variables with a strict number of values.
-Modulus is remainder math and will help us a lot with certain loops.
-Try Catch statements prevent programs from crashing and allow us to handle exceptions.
