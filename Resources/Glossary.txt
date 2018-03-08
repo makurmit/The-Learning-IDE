@@ -5,6 +5,9 @@ Array
 	Java
 		int[] nums = new int[5];
 		nums[0] = 1;
+	JavaScript
+		var nums = [];
+		nums[0] = 1;
 	Python
 		nums = []
 		nums[0] = 1
@@ -28,6 +31,14 @@ ArrayList
 		nums.set(0, 20);
 		nums.remove(0);
 		nums.size();
+	JavaScript
+		nums = [10, 20, 30];
+		nums[0];
+		nums.push(40);
+		nums[0] = 20;
+		nums.splice(0, 1); 
+		//first parameter tells which element to remove
+		//the second parameter specifies how many indexes after to remove
 	Python
 		nums = [10, 20, 30]
 		nums[0]
@@ -48,6 +59,11 @@ Comments
 		* multi-line
 		*/
 	Java
+		//single line
+		/*
+		* multi-line
+		*/
+	JavaScript
 		//single line
 		/*
 		* multi-line
@@ -86,6 +102,27 @@ Conditional Statements
 			...
 		}
 	Java
+		x < y //less than
+		x > y //greater than
+		x <= y //less than or equal to
+		x >= y //greater than or equal to
+		x == y //equal to
+		x != y //not equal to
+		x || y //or
+		x && y //and
+		if (conditional)
+		{
+			...
+		}
+		else if (conditional)
+		{
+			...
+		}
+		else
+		{
+			...
+		}
+	JavaScript
 		x < y //less than
 		x > y //greater than
 		x <= y //less than or equal to
@@ -149,6 +186,12 @@ Do/While
 		{
 			...
 		}while (conditional);
+	JavaScript
+		do
+		{
+			...
+		}
+		while (conditional);
 	Ruby
 		loop do
 			...
@@ -195,6 +238,11 @@ For
 		{
 			...
 		}
+	JavaScript
+		for (int i = 0; i < 10; i++) 
+		{
+			...
+		}
 	Python
 		for i in range(0, 10):
 			...
@@ -223,6 +271,14 @@ Method
 		{
 			...
 			return var;
+		}
+	JavaScript
+		function foo(a) {
+			...
+		}
+		function bar(){
+			...
+			return myVar;
 		}
 	Python
 		def foo(var):
@@ -270,6 +326,10 @@ Primitive Types
 		boolean b = true; //or false
 		char c = 'X';
 		String s = "words";
+	JavaScript
+		var v = 42;
+		v = "forty-two";
+		v = false;
 -------------------------------------------------
 Print
 	C#
@@ -299,13 +359,17 @@ Random
 		int num = rand.nextInt(50);
 		int num = rand.nextInt(50) + 1;//min of 1 instead of 0
 		double digit = rand.nextDouble();
+	JavaScript
+		var num = Math.random();
+		num = Math.round(Math.random() * 50);
+		num = Math.round(Math.random() * 50) + 1;//min of 1 instead of 0
 	Python
 		#At the top of the file
 		import random
 		
-		num = random.randint(0,50)
+		num = random.randint(1,51)
 	Ruby
-		num = rand(0..50)
+		num = rand(1..50)
 -------------------------------------------------
 Switch Statements
 	C#
@@ -320,6 +384,17 @@ Switch Statements
 				break;
 		}
 	Java
+		switch (variable)
+		{
+			case value:
+				break;
+			case value:
+			case value:
+				break;
+			default:
+				break;
+		}
+	JavaScript
 		switch (variable)
 		{
 			case value:
@@ -357,6 +432,15 @@ Try Catch
 		{
 			...
 		}
+	JavaScript
+		try
+		{
+			...
+		} 
+		catch (e)
+		{
+			...
+		}
 	Python
 		try:
 			...
@@ -391,6 +475,11 @@ While
 			...
 		}
 	Java
+		while (conditional)
+		{
+			...
+		}
+	JavaScript
 		while (conditional)
 		{
 			...

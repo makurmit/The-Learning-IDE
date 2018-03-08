@@ -35,6 +35,9 @@ namespace The_Learning_IDE
 				case "Java":
                     TheBox.Text = Properties.Resources.Java_Fundamentals;
 					break;
+                case "JavaScript":
+                    TheBox.Text = Properties.Resources.JavaScript_Fundamentals;
+                    break;
 				case "Python":
                     TheBox.Text = Properties.Resources.Python_Fundamentals;
 					break;
