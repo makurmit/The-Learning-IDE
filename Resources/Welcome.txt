@@ -1,7 +1,9 @@
 Hello and welcome to my IDE.
 
-To start press Lessons and select Chapter 1 Introduction.
+This program teaches you how to code in C#, Java, JavaScript, Python, and Ruby.
 
-If you do not have the compilers for C#, Java, Python, and/or Ruby click on the help button (the one with the "i").
+If you do not have the compilers for the languages listed above click on the help button (the one with the "i").
+
+To start press Lessons (the diploma button at the top) and select Chapter 1 Introduction.
 
 The text field will unlock once you have a file open.

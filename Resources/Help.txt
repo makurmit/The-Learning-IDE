@@ -4,7 +4,7 @@ Installation guide:
   C#
    Install Mono from http://www.mono-project.com/download/
    Add mono to the path:
-	Add bin file location (default is in program files)
+     Add bin file location (default is in program files)
    To verify run cmd and type "mono -V"
   
   Java
@@ -28,3 +28,5 @@ Installation guide:
  
  How to add files to the path:
   Control Panel => System => Change Settings => Advanced => Environment Variables => Path edit => add file location
+
+If you wish to start learning press the lessons button (the diploma in the menu bar) and select chapter 1 introduction.

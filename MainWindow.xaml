@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Background="Black" Closing="Window_Closing"
         Title="The Learning IDE" 
-        Height="500" Width="1000" MinHeight="300" MinWidth="600">
+        Height="500" Width="1000" MinHeight="300" MinWidth="600" KeyDown="MainWindow_KeyDown">
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>

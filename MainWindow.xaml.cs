@@ -406,6 +406,19 @@ namespace The_Learning_IDE
             g.Show();
         }
 
+        private void MainWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (tabs[TabBar.SelectedIndex].unSavedChanges)
+            {
+                SaveCurrTab();
+            }
+
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
+            {
+                SaveFile(CurrentFilePath, tabs[CurrIndex].rtf, CurrIndex);
+            }
+        }
+
 
     }
 }
