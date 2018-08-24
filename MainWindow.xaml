@@ -1,0 +1,123 @@
+﻿<Window x:Class="The_Learning_IDE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Learning_IDE"
+        mc:Ignorable="d"
+        Background="Black" Closing="Window_Closing"
+        Title="The Learning IDE" 
+        Height="500" Width="1000" MinHeight="300" MinWidth="600" KeyDown="MainWindow_KeyDown">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Icons from Flaticon-->
+        <StackPanel Orientation="Horizontal" x:Name="NavBarButtonGrid" Grid.Row="0">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="NewFileButtonClick" ToolTip="Create a new file">
+                <Image Source="Resources\icons\new_file.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="OpenFileClick" ToolTip="Open a file">
+                <Image Source="Resources\icons\open_file.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="SaveFileClick" ToolTip="Save current file">
+                <Image Source="Resources\icons\save_file.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
+                    Click="ClearTabsClick" ToolTip="Clear all tabs">
+                <Image Source="Resources\icons\clear.png"/>
+            </Button>
+            <Label Content="||" Foreground="Gray" FontSize="14"
+                   Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
+                    Click="LessonClick" ToolTip="Open lesson">
+                <Image Source="Resources\icons\lessons.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="ReferencesClick" ToolTip="Open fundamentals">
+                <Image Source="Resources\icons\fundamentals.png"/>
+            </Button>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="GlossaryClick" ToolTip="Open glossary">
+                <Image Source="Resources\icons\glossary.png"/>
+            </Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"
+                    Click="HelpClick" ToolTip="Help">
+                <Image Source="Resources\icons\help.png"/>
+            </Button>
+            <Label Content="||" Foreground="Gray" FontSize="14"
+                   Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"/>
+            <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 5, 0" Padding="5, 0, 5, 0"    
+                    Click="RunClick" ToolTip="Run">
+                <Image Source="Resources\icons\run.png"/>
+            </Button>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <TabControl Height="20" VerticalAlignment="Bottom"
+                        x:Name="TabBar"
+                        SelectionChanged="TabBar_SelectionChanged"
+                        Background="Black">
+            </TabControl>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <RichTextBox HorizontalAlignment="Left" Grid.Column="0"
+                       MinHeight="200" Width="50" 
+                       BorderThickness="0"
+                       x:Name="TheLineCounter" FontSize="16"
+                       Background="Black" Foreground="White"
+                       IsEnabled="False">
+            </RichTextBox>
+
+            <RichTextBox x:Name="TextField" Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Background="Black" TextBlock.Foreground="LightGray"
+                         BorderBrush="Black" BorderThickness="2"
+                         MinHeight="10" MinWidth="600"
+                         IsUndoEnabled="True" UndoLimit="100"
+                         TextBlock.LineHeight="1" 
+                         AcceptsTab="True" AcceptsReturn="True"
+                         TextChanged="UnsavedChanges" FontSize="16"
+                         IsEnabled="False" 
+                         HorizontalScrollBarVisibility="Auto"
+                         VerticalScrollBarVisibility="Auto"
+                         ScrollViewer.ScrollChanged="TextField_ScrollChanged"
+            >
+
+                <!--<RichTextBox.Resources>
+                    <Style TargetType="ScrollViewer">
+                        <Setter Property="MinWidth" Value="1000" />
+                    </Style>
+                </RichTextBox.Resources>-->
+
+            </RichTextBox>
+
+                <Expander Header="Lesson" Grid.Column="2" x:Name="LessonExpander"
+                      Background="Black" BorderBrush="Black" BorderThickness="1"
+                      Foreground="White"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      MinHeight="20" MinWidth="150">
+                <TextBox x:Name="LessonBox" 
+                         VerticalAlignment="Stretch"
+                         Background="Black" TextWrapping="Wrap"
+                         Foreground="LightGray" FontSize="16"
+                         AcceptsTab="True" AcceptsReturn="True"
+                         IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+            </Expander>
+        </Grid>
+
+    </Grid>
+</Window>

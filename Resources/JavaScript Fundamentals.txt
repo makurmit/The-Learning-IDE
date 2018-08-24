@@ -1,0 +1,49 @@
+JavaScript Fundamentals
+
+Introduction: 
+	JavaScript is a scripting language mainly used in web development. It is used along side HTML and CSS to create dynamic and interesting web pages. 
+
+Advantages: 
+	JavaScript has similar syntax to Java and C#, developers familiar with those languages might have an easier time than others. Dynamically typed languages tend to be faster to code in as variable typing can take some time to design. Lastly JavaScript is crucial in web development, it is used in most websites and gives a lot of freedom to web developers.
+
+Disadvantages: 
+	If you have no interest in web development this might not be the language for you, HTML is necessary to learn JavaScript and without CSS your sites will look like garbage. Weakly typed languages can run into a lot of problems with data integrity, meaning a variable's data may be manipulated in ways you don't want.
+
+Supported Platforms: Browsers
+
+Versions: First created in 1997, latest version is ECMAScript 7 released in 2016.
+
+Popular Frameworks: Angular, JQuery, and React.
+
+Code Example: "Console.Log();"
+
+
+References:
+	https://www.w3schools.com/js/
+	https://www.javascript.com/
+	https://en.wikipedia.org/wiki/JavaScript
+	https://simple.wikipedia.org/wiki/JavaScriptJavaScript Fundamentals
+
+Introduction: 
+	JavaScript is a scripting language mainly used in web development. It is used along side HTML and CSS to create dynamic and interesting web pages. 
+
+Advantages: 
+	JavaScript has similar syntax to Java and C#, developers familiar with those languages might have an easier time than others. Dynamically typed languages tend to be faster to code in as variable typing can take some time to design. Lastly JavaScript is crucial in web development, it is used in most websites and gives a lot of freedom to web developers.
+
+Disadvantages: 
+	If you have no interest in web development this might not be the language for you, HTML is necessary to learn JavaScript and without CSS your sites will look like garbage. Weakly typed languages can run into a lot of problems with data integrity, meaning a variable's data may be manipulated in ways you don't want.
+
+Supported Platforms: Browsers
+
+Versions: First created in 1997, latest version is ECMAScript 7 released in 2016.
+
+Popular Frameworks: Angular, JQuery, and React.
+
+Code Example: "Console.Log();"
+
+
+References:
+	https://www.w3schools.com/js/
+	https://www.javascript.com/
+	https://en.wikipedia.org/wiki/JavaScript
+	https://simple.wikipedia.org/wiki/JavaScript

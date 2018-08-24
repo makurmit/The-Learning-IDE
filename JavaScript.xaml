@@ -1,0 +1,30 @@
+﻿<Window x:Class="The_Learning_IDE.JavaScript"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Learning_IDE"
+        mc:Ignorable="d" Background="Black"
+        Title="JavaScript Run" Height="300" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Foreground="White" FontSize="20"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+            Content="Please open index.html in a browser."/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Click="Button_Click"
+                    Content="Close" Width="40" Height="20"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        
+    </Grid>
+</Window>

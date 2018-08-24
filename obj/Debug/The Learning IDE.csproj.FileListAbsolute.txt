@@ -1,0 +1,28 @@
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\bin\Debug\The Learning IDE.exe.config
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\bin\Debug\The Learning IDE.exe
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\bin\Debug\The Learning IDE.pdb
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\CreateNewFile.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\fundamentals.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\Glossary.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\JavaScript.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\MainWindow.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\ManageTabs.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\SaveChanges.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\App.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE_Content.g.cs
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE_MarkupCompile.cache
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE_MarkupCompile.lref
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\CreateNewFile.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\fundamentals.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\Glossary.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\JavaScript.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\MainWindow.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\ManageTabs.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\SaveChanges.baml
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.g.resources
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The_Learning_IDE.Properties.Resources.resources
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.csproj.GenerateResource.Cache
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.csproj.CoreCompileInputs.cache
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.exe
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.pdb
+C:\school\Capstone\PROJECT\The Learning IDE\The Learning IDE\The Learning IDE\obj\Debug\The Learning IDE.csprojResolveAssemblyReference.cache

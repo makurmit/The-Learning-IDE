@@ -1,0 +1,47 @@
+﻿<Window x:Class="The_Learning_IDE.Glossary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Learning_IDE"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="Glossary" Height="500" Width="700">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel 
+            Grid.Row="0" Orientation="Horizontal" 
+            Margin="10, 5, 10, 0">
+            <TextBox 
+                x:Name="SearchBox" Grid.Row="0"
+                Padding="2" MinWidth="520"
+                Background="Black" Foreground="White"
+                />
+
+            <Button 
+                Width="60" Margin="10, 0, 0, 0" 
+                HorizontalAlignment="Right"
+                Content="Search" FontSize="16"
+                Click="Search_Click"
+                />
+
+            <Button
+                Width="65" Margin="10, 0, 0, 0" 
+                HorizontalAlignment="Right"
+                Content="Refresh" FontSize="16"
+                Click="Refresh_Click"
+                />
+        </StackPanel>
+
+        <TextBox 
+            x:Name="TheTextBox" Grid.Row="1" IsReadOnly="True"
+            Margin="10" VerticalScrollBarVisibility="Auto"
+            Background="Black" Foreground="White" FontSize="16"/>
+    </Grid>
+</Window>
